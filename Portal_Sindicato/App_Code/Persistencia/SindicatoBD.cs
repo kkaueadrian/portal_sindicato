@@ -76,7 +76,8 @@ namespace persistencia
             objConexao.Dispose();
             objDataReader.Dispose();
             return obj;
-        }
+        }
+
         //update
         public bool Update(Sindicato sindicato)
         {
@@ -96,7 +97,8 @@ namespace persistencia
             objCommand.Dispose();
             objConexao.Dispose();
             return true;
-        }
+        }
+
         //delete
         public bool Delete(int id)
         {

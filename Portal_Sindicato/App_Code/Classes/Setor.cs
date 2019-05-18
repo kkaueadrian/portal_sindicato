@@ -10,7 +10,10 @@ namespace classes
     /// </summary>
     public class Setor
     {
-        public string tipo { get; set; }
+        public int Codigo { get; set; }
+        public string Tipo { get; set; }
+
+
 
         public Setor()
         {

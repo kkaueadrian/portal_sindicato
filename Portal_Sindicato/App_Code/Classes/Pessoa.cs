@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Classe
+namespace classes
 {
 
     /// <summary>
     /// Descrição resumida de Pessoas
     /// </summary>
-    public class Pessoas
+    public class Pessoa
     {
         //propriedades
         public int Codigo { get; set; }
@@ -24,7 +24,7 @@ namespace Classe
         public string Contato { get; set; }
 
         //construtor
-        public Pessoas()
+        public Pessoa()
         {
             //
             // TODO: Adicionar lógica do construtor aqui
