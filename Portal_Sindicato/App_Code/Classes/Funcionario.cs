@@ -3,20 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Classe
+namespace classes
 {
 
     /// <summary>
     /// Descrição resumida de Funcionario
     /// </summary>
-    public class Funcionario
+    public class Funcionario:Pessoa
     {
         //propriedades
         public int Codigo { get; set; }
-        public Boolean permissao_administrador { get; set; }
-        public int set_codigo { get; set; }
-        public int pes_codigo { get; set; }
-        public int sin_codigo { get; set; }
+        public Boolean PermissaoAdministrador { get; set; }
+        public string Nome { get; set; }
+        public string Senha { get; set; }
+        public string Cpf { get; set; }
+        public DateTime Nascimento { get; set; }
+        public DateTime Dataadm { get; set; }
+        public string Endereco { get; set; }
+        public string Email { get; set; }
+        public string Celular { get; set; }
+        public Sindicato Sindicato { get; set; }
+        public Setor Setor { get; set; }
+
 
         //construtor
         public Funcionario()
