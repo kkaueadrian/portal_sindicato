@@ -67,6 +67,12 @@
         <asp:Label ID="caepf" runat="server" Text="CAEPF:"></asp:Label>
         <br />
         <asp:TextBox ID="txtCaepf" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
+        <br />
+        <br />
+        <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
     </form>
 </body>
 </html>

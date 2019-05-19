@@ -15,7 +15,7 @@ namespace classes
         public int Codigo { get; set; }
         public string Tipo { get; set; }
         public string Documento { get; set; }
-        public Funcionario funcionario { get; set; }
+        public Funcionario Funcionario { get; set; }
 
 
 

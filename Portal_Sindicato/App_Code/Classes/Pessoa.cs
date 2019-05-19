@@ -18,7 +18,6 @@ namespace classes
         public string Cpf { get; set; }
         public DateTime Nascimento { get; set; }
         public DateTime Dataadm { get; set; }
-        public DateTime Datadem { get; set; }
         public string Endereco { get; set; }
         public string Email { get; set; }
         public string Contato { get; set; }
