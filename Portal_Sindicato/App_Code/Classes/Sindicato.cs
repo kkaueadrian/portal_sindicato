@@ -18,7 +18,7 @@ namespace classes
         public string Contato { get; set; }
         public bool Ativo { get; set; }
 
-
+        public Associado Associado { get; set; }
 
         public Sindicato()
         {

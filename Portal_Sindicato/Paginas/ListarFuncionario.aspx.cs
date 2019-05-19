@@ -15,16 +15,7 @@ public partial class Paginas_ListarFuncionario : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        private void Carrega()
-        {
-            FuncionarioBD bd = new FuncionarioBD();
-            DataSet ds = bd.SelectAll();
-            GridView1.DataSource = ds.Tables[0].DefaultView;
-            GridView1.DataBind();
-        }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            Carrega();
-        }
+       
+       
     }
 }

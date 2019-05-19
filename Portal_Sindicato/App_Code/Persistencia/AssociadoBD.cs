@@ -17,7 +17,7 @@ namespace persistencia
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "INSERT INTO pes_pessoas( pes_codigo, pes_permissao_administrador, pes_nome, pes_senha, pes_cpf, pes_nascimento, pes_dataadm, pes_endereco, pes_email, pes_contato, sin_codigo, pes_cnpj, pes_ie, pes_caepf) VALUES (?permissaoAdministrador, ?nome, ?senha, ?cpf, ?nascimento, ?dataadm, ?endereco, ?email, ?contato, ?sindicato, ?cnpj, ?ie, ?caepf)";
+            string sql = "INSERT INTO pes_pessoa( pes_nome, pes_senha, pes_cpf, pes_nascimento, pes_dataadm, pes_endereco, pes_email, pes_contato, sin_codigo, pes_cnpj, pes_ie, pes_caepf, pes_tipo) VALUES (?nome, ?senha, ?cpf, ?nascimento, ?dataadm, ?endereco, ?email, ?contato, ?sindicato, ?cnpj, ?ie, ?caepf, ?tipo)";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?nome", associado.Nome));
@@ -32,6 +32,8 @@ namespace persistencia
             objCommand.Parameters.Add(Mapped.Parameter("?cnpj", associado.Cnpj));
             objCommand.Parameters.Add(Mapped.Parameter("?ie", associado.Ie));
             objCommand.Parameters.Add(Mapped.Parameter("?caepf", associado.Caepf));
+            objCommand.Parameters.Add(Mapped.Parameter("?tipo", associado.Tipo));
+
 
             objCommand.ExecuteNonQuery();
             objConexao.Close();
