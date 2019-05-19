@@ -1,10 +1,5 @@
 ﻿using FATEC;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using classes;
-using System.Data;
 
 namespace persistencia
 {
@@ -40,8 +35,24 @@ namespace persistencia
             objCommand.Dispose();
             objConexao.Dispose();
             return true;
-        }
+        }
+
         //selectall
+        public DataSet SelectAll()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM tbl_funcionario", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
         //select
         //update
         //delete
