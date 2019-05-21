@@ -24,6 +24,7 @@ namespace classes
         public string Celular { get; set; }
         public Sindicato Sindicato { get; set; }
         public Setor Setor { get; set; }
+        public int Tipo { get; set; }
 
 
         //construtor

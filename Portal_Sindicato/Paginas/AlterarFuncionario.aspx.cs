@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
+public partial class Paginas_AlterarFuncionario : System.Web.UI.Page
 {
     private void CarregaSindicatos()
     {
@@ -32,18 +32,34 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-//carrega somente a primeira vez
         if (!Page.IsPostBack)
         {
             CarregaSindicatos();
             ddlSindicato.Focus();
-
         }
-        //carrega somente a primeira vez
         if (!Page.IsPostBack)
         {
             CarregaSetores();
             ddlSetor.Focus();
+        }
+        if (!Page.IsPostBack)
+        {
+
+
+            FuncionarioBD bd = new FuncionarioBD();
+            Funcionario funcionario = bd.Select(Convert.ToInt32(Session["ID"]));
+            ckdPermissaoAdministrador.Checked = funcionario.PermissaoAdministrador;
+            txtNome.Text = funcionario.Nome;
+            txtCpf.Text = funcionario.Cpf;
+            txtSenha.Text = funcionario.Senha;
+            txtNascimento.Text = funcionario.Nascimento.ToString();
+            txtDataadm.Text = funcionario.Dataadm.ToString();
+            txtEndereco.Text = funcionario.Endereco;
+            txtEmail.Text = funcionario.Email;
+            txtContato.Text = funcionario.Contato;
+          
+
+
         }
     }
 
@@ -55,8 +71,8 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
         SetorBD setorbd = new SetorBD();
         Setor setor = setorbd.Select(Convert.ToInt32(ddlSetor.SelectedItem.Value));
 
-        Funcionario funcionario = new Funcionario();
-        funcionario.PermissaoAdministrador = ckdPermissaoAdministrador.Checked;
+        FuncionarioBD bd = new FuncionarioBD();
+        Funcionario funcionario = bd.Select(Convert.ToInt32(Session["ID"]));
         funcionario.Nome = txtNome.Text;
         funcionario.Cpf = txtCpf.Text;
         funcionario.Senha = txtSenha.Text;
@@ -65,35 +81,12 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
         funcionario.Endereco = txtEndereco.Text;
         funcionario.Email = txtEmail.Text;
         funcionario.Contato = txtContato.Text;
-     
         funcionario.Sindicato = sindicato;
         funcionario.Setor = setor;
-        funcionario.Tipo = 1;
-
-
-        FuncionarioBD bd = new FuncionarioBD();
-        if (bd.Insert(funcionario))
+        if (bd.Update(funcionario))
         {
-            lblMensagem.Text = "Funcionario cadastrado com sucesso";
-            ckdPermissaoAdministrador.Checked = false;
-            txtNome.Text = "";
-            txtCpf.Text = "";
-            txtSenha.Text = "";
-            txtNascimento.Text = "";
-            txtDataadm.Text = "";
-            txtEndereco.Text = "";
-            txtEmail.Text = "";
-            txtContato.Text = "";
-            
-            //remove seleção do ddl
-            for (int i = 0; i < ddlSindicato.Items.Count; i++)
-            {
-                ddlSindicato.Items[i].Selected = false;
-            }
-            //coloca o "Selecione" selecionado
-            ddlSindicato.Items[0].Selected = true;
-
-            txtContato.Focus();
+            lblMensagem.Text = "Funcionario alterado com sucesso";
+            txtNome.Focus();
         }
         else
         {
@@ -101,6 +94,3 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
         }
     }
 }
-
-    
-
