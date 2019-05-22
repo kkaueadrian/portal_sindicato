@@ -18,6 +18,7 @@
         </div>
         <asp:GridView ID="gvFuncionario" runat="server" AutoGenerateColumns="False" OnRowCommand="gvFuncionario_RowCommand1" >
             <Columns>
+                <asp:BoundField DataField="pes_codigo" HeaderText="Codigo" />
                 <asp:BoundField DataField="pes_permissao_administrador" HeaderText="Pemissão de Administrador" />
                 <asp:BoundField DataField="pes_nome" HeaderText="Nome" />
                 <asp:BoundField DataField="pes_cpf" HeaderText="CPF" />
