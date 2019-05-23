@@ -79,6 +79,10 @@
         <br />
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+
+        <br />
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Paginas/ListarAssociados.aspx">Lista</asp:HyperLink>
+
     </form>
 </body>
 </html>

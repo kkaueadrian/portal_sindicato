@@ -63,7 +63,7 @@ namespace persistencia
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM pes_pessoa p inner join sin_sindicato si on p.sin_codigo = si.sin_codigo inner join set_setor se on p.set_codigo = se.set_codigo  where pes_tipo = 1", objConexao);
+            objCommand = Mapped.Command("SELECT * FROM pes_pessoa p inner join sin_sindicato si on p.sin_codigo = si.sin_codigo inner join set_setor se on p.set_codigo = se.set_codigo  where pes_tipo = 1 order by pes_codigo", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
@@ -86,7 +86,7 @@ namespace persistencia
             {
                 obj = new Funcionario();
                 obj.Codigo = Convert.ToInt32(objDataReader["pes_codigo"]);
-                obj.Codigo = Convert.ToInt32(objDataReader["pes_permissao_administrador"]);
+                obj.PermissaoAdministrador = Convert.ToBoolean(objDataReader["pes_permissao_administrador"]);
                 obj.Nome = Convert.ToString(objDataReader["pes_nome"]);
                 obj.Senha = Convert.ToString(objDataReader["pes_senha"]);
                 obj.Cpf = Convert.ToString(objDataReader["pes_cpf"]);
@@ -114,6 +114,7 @@ namespace persistencia
             string sql = "UPDATE pes_pessoa SET pes_permissao_administrador = ?permissaoAdministrador, pes_nome = ?nome, pes_senha = ?senha, pes_cpf = ?cpf, pes_nascimento = ?nascimento, pes_dataadm = ?dataadm, pes_endereco = ?endereco, pes_email = ?email, pes_contato = ?contato, sin_codigo = ?sindicato, set_codigo = ?setor  WHERE pes_codigo = ?codigo";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
+            
             objCommand.Parameters.Add(Mapped.Parameter("?permissaoAdministrador", funcionario.PermissaoAdministrador));
             objCommand.Parameters.Add(Mapped.Parameter("?nome", funcionario.Nome));
             objCommand.Parameters.Add(Mapped.Parameter("?senha", funcionario.Senha));

@@ -1,25 +1,24 @@
-﻿using System;
+﻿using classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace classes
 {
-
-
     /// <summary>
-    /// Descrição resumida de Pendencia
+    /// Descrição resumida de Servico
     /// </summary>
-    public class Pendencia
+    public class Servico
     {
         public int Codigo { get; set; }
+        public string Descricao { get; set; }
+        public Boolean Status { get; set; }
         public string Tipo { get; set; }
-        public string Documento { get; set; }
-        public Associado Associado { get; set; }
+        public Setor Setor { get; set; }
+        public Sindicato Sindicato { get; set; }        
 
-
-
-        public Pendencia()
+        public Servico()
         {
             //
             // TODO: Adicionar lógica do construtor aqui
