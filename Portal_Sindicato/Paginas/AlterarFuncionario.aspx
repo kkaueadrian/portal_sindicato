@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CadastrarFuncionario.aspx.cs" Inherits="Paginas_CadastrarFuncionario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AlterarFuncionario.aspx.cs" Inherits="Paginas_AlterarFuncionario" %>
 
 <!DOCTYPE html>
 
@@ -78,7 +78,8 @@
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
         <br />
-        
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Paginas/ListarFuncionario.aspx">Lista</asp:HyperLink>
+        <br />
     </form>
 </body>
 </html>

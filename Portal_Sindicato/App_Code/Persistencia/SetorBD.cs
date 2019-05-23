@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using FATEC;
 using classes;
+using System.Data;
 
 namespace persistencia
 {
@@ -29,7 +30,46 @@ namespace persistencia
             return true;
         }
         //selectall
+        public DataSet SelectAll()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM set_setor", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
         //select
+        public Setor Select(int id)
+        {
+            Setor obj = null;
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataReader objDataReader;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM set_setor WHERE set_codigo = ?codigo", objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?codigo", id));
+            objDataReader = objCommand.ExecuteReader();
+            while (objDataReader.Read())
+            {
+                obj = new Setor();
+                obj.Codigo = Convert.ToInt32(objDataReader["set_codigo"]);
+                obj.Tipo = Convert.ToString(objDataReader["set_tipo"]);
+                
+            }
+            objDataReader.Close();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            objDataReader.Dispose();
+            return obj;
+        }
         //update
         //delete
         //construtor

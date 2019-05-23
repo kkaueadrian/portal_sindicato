@@ -6,9 +6,19 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using persistencia;
+using classes;
 
 public partial class Paginas_ListarAssociados : System.Web.UI.Page
 {
+    private bool IsFuncionario(int tipo)
+    {
+        bool retorno = false;
+        if (tipo == 1)
+        {
+            retorno = true;
+        }
+        return retorno;
+    }
     private void Carrega()
     {
         AssociadoBD bd = new AssociadoBD();
@@ -18,6 +28,14 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        int codigo = Convert.ToInt32(Session["ID"]);
+        PessoaBD bf = new PessoaBD();
+        Pessoa pessoa = bf.Select(codigo);
+        if (!IsFuncionario(pessoa.Tipo))
+        {
+            Response.Redirect("AcessoNegado.aspx");
+        }
+
         AssociadoBD bd = new AssociadoBD();
         DataSet ds = bd.SelectAllWithSindicate();
         //verifica a quantidade de associados no dataset
@@ -35,8 +53,10 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
             lblMensagem.Text = "Nenhum Associado cadastrado";
         }
         Carrega();
+
         
     }
+
 
 
     protected void grvAssociados_RowCommand(object sender, GridViewCommandEventArgs e)

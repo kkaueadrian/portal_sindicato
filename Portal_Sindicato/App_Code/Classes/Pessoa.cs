@@ -21,6 +21,7 @@ namespace classes
         public string Endereco { get; set; }
         public string Email { get; set; }
         public string Contato { get; set; }
+        public int Tipo { get; set; }
 
         //construtor
         public Pessoa()

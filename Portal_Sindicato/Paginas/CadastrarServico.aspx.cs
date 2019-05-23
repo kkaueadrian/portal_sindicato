@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
+public partial class Paginas_CadastrarServico : System.Web.UI.Page
 {
     private void CarregaSindicatos()
     {
@@ -32,7 +32,6 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-//carrega somente a primeira vez
         if (!Page.IsPostBack)
         {
             CarregaSindicatos();
@@ -55,36 +54,22 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
         SetorBD setorbd = new SetorBD();
         Setor setor = setorbd.Select(Convert.ToInt32(ddlSetor.SelectedItem.Value));
 
-        Funcionario funcionario = new Funcionario();
-        funcionario.PermissaoAdministrador = ckdPermissaoAdministrador.Checked;
-        funcionario.Nome = txtNome.Text;
-        funcionario.Cpf = txtCpf.Text;
-        funcionario.Senha = txtSenha.Text;
-        funcionario.Nascimento = Convert.ToDateTime(txtNascimento.Text);
-        funcionario.Dataadm = Convert.ToDateTime(txtDataadm.Text);
-        funcionario.Endereco = txtEndereco.Text;
-        funcionario.Email = txtEmail.Text;
-        funcionario.Contato = txtContato.Text;
-     
-        funcionario.Sindicato = sindicato;
-        funcionario.Setor = setor;
-        funcionario.Tipo = 1;
+        Servico servico = new Servico();
+        servico.Descricao = txtDescricao.Text;
+        servico.Status = ckdStatus.Checked;
+        servico.Tipo = txtTipo.Text;
+        servico.Sindicato = sindicato;
+        servico.Setor = setor;
+      
 
 
-        FuncionarioBD bd = new FuncionarioBD();
-        if (bd.Insert(funcionario))
+        ServicoBD bd = new ServicoBD();
+        if (bd.Insert(servico))
         {
-            lblMensagem.Text = "Funcionario cadastrado com sucesso";
-            ckdPermissaoAdministrador.Checked = false;
-            txtNome.Text = "";
-            txtCpf.Text = "";
-            txtSenha.Text = "";
-            txtNascimento.Text = "";
-            txtDataadm.Text = "";
-            txtEndereco.Text = "";
-            txtEmail.Text = "";
-            txtContato.Text = "";
-            
+            lblMensagem.Text = "Servico cadastrado com sucesso";
+            txtDescricao.Text = "";
+            txtTipo.Text = "";
+
             //remove seleção do ddl
             for (int i = 0; i < ddlSindicato.Items.Count; i++)
             {
@@ -93,7 +78,7 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
             //coloca o "Selecione" selecionado
             ddlSindicato.Items[0].Selected = true;
 
-            txtContato.Focus();
+            txtTipo.Focus();
         }
         else
         {
@@ -101,6 +86,3 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
         }
     }
 }
-
-    
-

@@ -8,7 +8,7 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height: 159px;
+            height: 296px;
         }
     </style>
 </head>

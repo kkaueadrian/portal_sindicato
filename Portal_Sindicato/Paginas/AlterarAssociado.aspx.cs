@@ -72,7 +72,7 @@ public partial class Paginas_AlterarAssociado : System.Web.UI.Page
         associado.Sindicato = sindicato;
         if (bd.Update(associado))
         {
-            lblMensagem.Text = "Associado alterado com sucesso";
+            lblMensagem.Text = "Associado alterado com sucesso ";
             txtNome.Focus();
         }
         else

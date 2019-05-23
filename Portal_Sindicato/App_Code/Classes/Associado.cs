@@ -13,7 +13,6 @@ namespace classes
         public string Cnpj { get; set; }
         public string Ie { get; set; }
         public string Caepf { get; set; }
-        public int Tipo { get; set; }
         public Sindicato Sindicato { get; set; }
 
 
