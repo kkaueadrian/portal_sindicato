@@ -153,7 +153,10 @@ namespace persistencia
             objCommand.Dispose();
             objConexao.Dispose();
             return true;
-        }
+        }
+        //login
+
+        
         public AssociadoBD()
         {
             //

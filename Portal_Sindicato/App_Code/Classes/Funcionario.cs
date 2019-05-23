@@ -16,7 +16,7 @@ namespace classes
         public Boolean PermissaoAdministrador { get; set; }
         public Sindicato Sindicato { get; set; }
         public Setor Setor { get; set; }
-        public int Tipo { get; set; }
+        
 
 
         //construtor
