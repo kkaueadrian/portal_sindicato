@@ -18,7 +18,7 @@ public partial class Paginas_ListarFuncionario : System.Web.UI.Page
         gvFuncionario.DataSource = ds.Tables[0].DefaultView;
         gvFuncionario.DataBind();
     }
-    public object GridView1 { get; private set; }
+    
 
     protected void Page_Load(object sender, EventArgs e)
     {
