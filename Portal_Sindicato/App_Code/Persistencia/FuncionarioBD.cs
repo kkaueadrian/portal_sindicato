@@ -32,7 +32,6 @@ namespace persistencia
             objCommand.Parameters.Add(Mapped.Parameter("?sindicato", funcionario.Sindicato.Codigo));
             objCommand.Parameters.Add(Mapped.Parameter("?setor", funcionario.Setor.Codigo));
             objCommand.Parameters.Add(Mapped.Parameter("?tipo", funcionario.Tipo));
-
             objCommand.ExecuteNonQuery();
             objConexao.Close();
             objCommand.Dispose();
@@ -95,9 +94,6 @@ namespace persistencia
                 obj.Endereco = Convert.ToString(objDataReader["pes_endereco"]);
                 obj.Email = Convert.ToString(objDataReader["pes_email"]);
                 obj.Contato = Convert.ToString(objDataReader["pes_contato"]);
-
-               
-
             }
             objDataReader.Close();
             objConexao.Close();
