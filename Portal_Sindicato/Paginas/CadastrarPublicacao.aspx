@@ -30,7 +30,8 @@
             <br />
             <asp:Label ID="lblTipo" runat="server" Text="Tipo"></asp:Label>
             <br />
-            <asp:TextBox ID="txtTipo" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="ddlTipo" runat="server" >
+            </asp:DropDownList>
             <br />
             <br />
             <asp:Label ID="lblImagem" runat="server" Text="Imagem"></asp:Label>

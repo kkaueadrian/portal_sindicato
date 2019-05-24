@@ -70,14 +70,29 @@ namespace persistencia
             objConexao.Dispose();
             return ds;
         }
-        public DataSet SelectAllByStatus()
+        public DataSet SelectAllByStatusAndEvent()
         {
             DataSet ds = new DataSet();
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM pub_publicacao WHERE pub_status = 1", objConexao);
+            objCommand = Mapped.Command("SELECT * FROM pub_publicacao WHERE pub_status = 1 and pub_tipo = 'Evento'", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+        public DataSet SelectAllByStatusAndSalles()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM pub_publicacao WHERE pub_status = 1 and pub_tipo = 'Classificados'", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();

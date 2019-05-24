@@ -27,9 +27,14 @@ public partial class Paginas_CadastrarPublicacao : System.Web.UI.Page
             CarregaSindicatos();
             ddlSindicato.Focus();
 
+            ddlTipo.Items.Add(new ListItem("Evento", "Evento"));
+            ddlTipo.Items.Add(new ListItem("Classificados", "Classificados"));
+            ddlTipo.Items.Insert(0, "Selecione");
+
         }
 
     }
+   
 
     protected void lblSalvar_Click(object sender, EventArgs e)
     {
@@ -42,7 +47,7 @@ public partial class Paginas_CadastrarPublicacao : System.Web.UI.Page
             {
                 string arquivo = fuImagem.FileName;
                 //caminho onde a foto será salva
-                fuImagem.SaveAs(@"C:\Users\Pietro\source\repos\kkaueadrian\Portal_Sindicato\Portal_Sindicato\Upload\" + arquivo);
+                fuImagem.SaveAs(@"C:\Users\pl_ta\source\repos\kkaueadrian\Portal_Sindicato\Portal_Sindicato\Upload\" + arquivo);
 
 
                 SindicatoBD sindicatobd = new SindicatoBD();
@@ -52,7 +57,7 @@ public partial class Paginas_CadastrarPublicacao : System.Web.UI.Page
                 publicacao.Endereco = txtEndereco.Text;
                 publicacao.Descricao = txtDescricao.Text;
                 publicacao.Status = ckdStatus.Checked;
-                publicacao.Tipo = txtTipo.Text;
+                publicacao.Tipo = ddlTipo.SelectedItem.Value; 
                 publicacao.Imagem = arquivo;
                 publicacao.Sindicato = sindicato;
 
@@ -63,7 +68,7 @@ public partial class Paginas_CadastrarPublicacao : System.Web.UI.Page
                     txtEndereco.Text = "";
                     txtDescricao.Text = "";
                     ckdStatus.Checked = false;
-                    txtTipo.Text = "";
+                    
 
 
 
@@ -75,7 +80,7 @@ public partial class Paginas_CadastrarPublicacao : System.Web.UI.Page
                     //coloca o "Selecione" selecionado
                     ddlSindicato.Items[0].Selected = true;
 
-                    txtTipo.Focus();
+                    txtDescricao.Focus();
                 }
                 else
                 {
@@ -84,4 +89,6 @@ public partial class Paginas_CadastrarPublicacao : System.Web.UI.Page
             }
         }
     }
+
+    
 }
