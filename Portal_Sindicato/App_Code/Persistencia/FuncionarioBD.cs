@@ -95,8 +95,9 @@ namespace persistencia
                 obj.Endereco = Convert.ToString(objDataReader["pes_endereco"]);
                 obj.Email = Convert.ToString(objDataReader["pes_email"]);
                 obj.Contato = Convert.ToString(objDataReader["pes_contato"]);
+                obj.Tipo = Convert.ToInt32(objDataReader["pes_tipo"]);
 
-               
+
 
             }
             objDataReader.Close();
@@ -149,6 +150,7 @@ namespace persistencia
             objConexao.Dispose();
             return true;
         }
+
         //construtor
 
         public FuncionarioBD()

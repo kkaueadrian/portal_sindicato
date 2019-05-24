@@ -13,7 +13,7 @@ namespace classes
     {
         //propriedades
         
-        public Boolean PermissaoAdministrador { get; set; }
+         public Boolean PermissaoAdministrador { get; set; }
         public Sindicato Sindicato { get; set; }
         public Setor Setor { get; set; }
         

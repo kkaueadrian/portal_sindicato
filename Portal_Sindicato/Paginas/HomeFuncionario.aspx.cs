@@ -21,16 +21,23 @@ public partial class Paginas_HomeFuncionario : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         int codigo = Convert.ToInt32(Session["ID"]);
-        PessoaBD bd = new PessoaBD();
-        Pessoa pessoa = bd.Select(codigo);
-        if (!IsFuncionario(pessoa.Tipo))
+        FuncionarioBD bd = new FuncionarioBD();
+        Funcionario funcionario = bd.Select(codigo);
+        
+        if (!IsFuncionario(funcionario.Tipo))
         {
             Response.Redirect("AcessoNegado.aspx");
         }
         else
         {
-            lblTitulo.Text = "Bem vindo  " + pessoa.Nome + " o que deseja fazer hoje";
+            if(funcionario.PermissaoAdministrador == false)
+            {
+                hlFuncionario.Visible=false;
+            }
+            lblTitulo.Text = "Bem vindo  " + funcionario.Nome + " o que deseja fazer hoje";
+
         }
+
     }
 
     protected void lbSair_Click(object sender, EventArgs e)
