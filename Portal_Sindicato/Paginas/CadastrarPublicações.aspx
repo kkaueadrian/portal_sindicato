@@ -29,7 +29,7 @@
             :</p>
         <asp:TextBox ID="txtStatus" runat="server"></asp:TextBox>
         <p>
-            <asp:CheckBox ID="CheckBox" runat="server" />
+            <asp:CheckBox ID="ckdStatus" runat="server" />
         </p>
         <p>
             <asp:Label ID="lblTipo" runat="server" Text="Tipo"></asp:Label>
@@ -39,15 +39,17 @@
         </p>
         <p>
          
+            <asp:Label ID="lblimagem" runat="server" Text="Imagem"></asp:Label>
+         
         <p>
-            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <asp:FileUpload ID="FileUpl" runat="server" />
         </p>
         <p>
             &nbsp;</p>
-        <asp:Button ID="Button1" runat="server" Text="Publicar" />
+        <asp:Button ID="btnSalvar" runat="server" Text="Salvar" />
         <br />
         <br />
-        <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
     </form>
 </body>
 </html>
