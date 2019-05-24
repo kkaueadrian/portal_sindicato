@@ -34,7 +34,10 @@
         </p>
         <br />
         <asp:Button ID="btnSalvar" runat="server" Text="Salvar" />
+        
+        <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
         <br />
+      
     </form>
 </body>
 </html>
