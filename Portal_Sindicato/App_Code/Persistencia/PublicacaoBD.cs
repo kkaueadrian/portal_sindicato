@@ -109,16 +109,15 @@ namespace persistencia
                 obj.Tipo = Convert.ToString(objDataReader["pub_tipo"]);
                 obj.Imagem = Convert.ToString(objDataReader["pub_imagem"]);
 
-
+                //método para buscar todos os campos do sindicato
                 SindicatoBD sindicatoBD = new SindicatoBD();
                 Sindicato sindicato = sindicatoBD.Select(Convert.ToInt32(objDataReader["sin_sindicato"]));               
                 obj.Sindicato = sindicato;
 
+                //método para buscar somente o código do sindicato
                 //Sindicato sindicato = new Sindicato();
                 //sindicato.Codigo = Convert.ToInt32(objDataReader["sin_sindicato"]);
                 //obj.Sindicato = sindicato;
-
-
             }
             objDataReader.Close();
             objConexao.Close();
