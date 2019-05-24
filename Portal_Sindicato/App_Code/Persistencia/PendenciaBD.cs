@@ -45,6 +45,23 @@ public class PendenciaBD
         return ds;
     }
 
+    public DataSet SelectAllWithAssociate()
+    {
+        DataSet ds = new DataSet();
+        System.Data.IDbConnection objConexao;
+        System.Data.IDbCommand objCommand;
+        System.Data.IDataAdapter objDataAdapter;
+        objConexao = Mapped.Connection();
+        objCommand = Mapped.Command("SELECT * FROM pen_pendencia pe inner join pes_pessoa pa on pe.pes_codigo = pa.pes_codigo order by pen_codigo ", objConexao);
+        objDataAdapter = Mapped.Adapter(objCommand);
+
+        objDataAdapter.Fill(ds);
+        objConexao.Close();
+        objCommand.Dispose();
+        objConexao.Dispose();
+        return ds;
+    }
+
     public DataSet SelectAllByUser(int userid)
     {
         DataSet ds = new DataSet();

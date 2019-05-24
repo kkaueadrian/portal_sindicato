@@ -20,7 +20,7 @@ namespace persistencia
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "INSERT INTO pub_publicacao(pub_datacadastro, pub_datainicio, pub_datatermino, pub_endereco, pub_descricao, pub_status, pub_tipo, pub_imagem, sin_sindicato) VALUES (?datacadastro, ?datainicio, ?datatermino, ?endereco, ?descricao, ?status, ?tipo, ?imagem, ?sindicato)";
+            string sql = "INSERT INTO pub_publicacao(pub_datacadastro, pub_datainicio, pub_datatermino, pub_endereco, pub_descricao, pub_status, pub_tipo, pub_imagem, sin_codigo) VALUES (?datacadastro, ?datainicio, ?datatermino, ?endereco, ?descricao, ?status, ?tipo, ?imagem, ?sindicato)";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?datacadastro", publicacao.DataCadastro));
@@ -55,6 +55,36 @@ namespace persistencia
             objConexao.Dispose();
             return ds;
         }
+        public DataSet SelectAllWithSindicate()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM pub_publicacao p inner join sin_sindicato s on p.sin_codigo = s.sin_codigo", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+        public DataSet SelectAllByStatus()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM pub_publicacao WHERE pub_status = 1", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
         //select
         public Publicacao Select(int id)
         {
@@ -75,8 +105,8 @@ namespace persistencia
                 obj.DataTermino = Convert.ToDateTime(objDataReader["pub_datatermino"]);
                 obj.Endereco = Convert.ToString(objDataReader["pub_endereco"]);
                 obj.Descricao = Convert.ToString(objDataReader["pub_descricao"]);
-                obj.Status = Convert.ToInt32(objDataReader["pub_status"]);
-                obj.Tipo = Convert.ToInt32(objDataReader["pub_tipo"]);
+                obj.Status = Convert.ToBoolean(objDataReader["pub_status"]);
+                obj.Tipo = Convert.ToString(objDataReader["pub_tipo"]);
                 obj.Imagem = Convert.ToString(objDataReader["pub_imagem"]);
 
 

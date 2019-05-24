@@ -65,7 +65,6 @@ public partial class Paginas_CadastrarFuncionario : System.Web.UI.Page
         funcionario.Endereco = txtEndereco.Text;
         funcionario.Email = txtEmail.Text;
         funcionario.Contato = txtContato.Text;
-     
         funcionario.Sindicato = sindicato;
         funcionario.Setor = setor;
         funcionario.Tipo = 1;

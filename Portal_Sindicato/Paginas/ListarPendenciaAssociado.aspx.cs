@@ -6,22 +6,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
+public partial class Paginas_ListarPendenciaAssociado : System.Web.UI.Page
 {
     private void Carrega()
     {
         PendenciaBD bd = new PendenciaBD();
-        DataSet ds = bd.SelectAllWithAssociate();
-        gvPendencias.DataSource = ds.Tables[0].DefaultView;
-        gvPendencias.DataBind();
+        DataSet ds = bd.SelectAllByUser(Convert.ToInt32(Session["ID"]));
+        grvPendencias.DataSource = ds.Tables[0].DefaultView;
+        grvPendencias.DataBind();
         //verifica a quantidade de associados no dataset
         int quantidade = ds.Tables[0].Rows.Count;
         if (quantidade > 0)
         {
 
 
-            gvPendencias.DataSource = ds.Tables[0].DefaultView;
-            gvPendencias.DataBind();
+            grvPendencias.DataSource = ds.Tables[0].DefaultView;
+            grvPendencias.DataBind();
             lblMensagem.Text = "Existem " + quantidade + " Pendencias cadastrados";
         }
         else
@@ -29,24 +29,27 @@ public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
             lblMensagem.Text = "Nenhuma Pendencia cadastrado";
         }
     }
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
             Carrega();
         }
-    }
 
-    protected void gvPendencias_RowDataBound(object sender, GridViewRowEventArgs e)
+    }
+   
+
+
+
+    protected void grvPendencias_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             DataRowView dr = (DataRowView)e.Row.DataItem;
-            // int codigo = Convert.ToInt32( dr["pen_codigo"]);
+           // int codigo = Convert.ToInt32( dr["pen_codigo"]);
             string documento = Convert.ToString(dr["pen_documento"]);
 
-            e.Row.Cells[2].Text = "<a href='http://localhost:54428/Upload/" + documento + "' target='_blank'>Download</a>";
+            e.Row.Cells[1].Text = "<a href='http://localhost:54428/Upload/" + documento  + "' target='_blank'>Download</a>";
         }
     }
 }

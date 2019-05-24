@@ -16,8 +16,8 @@ namespace classes
         public DateTime DataTermino { get; set; }
         public string Endereco { get; set; }
         public string Descricao { get; set; }
-        public int Status { get; set; }
-        public int Tipo { get; set; }
+        public Boolean Status { get; set; }
+        public string Tipo { get; set; }
         public string Imagem { get; set; }
         public Sindicato Sindicato { get; set; }
 

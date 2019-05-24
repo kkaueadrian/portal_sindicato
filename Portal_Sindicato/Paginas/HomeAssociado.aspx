@@ -14,7 +14,9 @@
             <br />
             <br />
             <asp:Label ID="lblPendencia" runat="server" Text="Consulte suas pêndencias "></asp:Label>
-            <asp:HyperLink ID="hlPendencia" NavigateUrl="~/Paginas/ListarPendenciaFuncionario.aspx" runat="server">Aqui</asp:HyperLink>
+            <br />
+            <asp:HyperLink ID="hlPendencia" NavigateUrl="~/Paginas/ListarPendenciaAssociado.aspx" runat="server">Aqui</asp:HyperLink>
+            <br />
             <br />
         </div>
         <asp:LinkButton ID="lbSair" runat="server" OnClick="lbSair_Click">Sair</asp:LinkButton>

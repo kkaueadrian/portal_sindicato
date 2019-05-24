@@ -10,17 +10,22 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblTitulo" runat="server" Text="Suas pendências"></asp:Label>
-            <asp:GridView ID="grvPendencias" runat="server" AutoGenerateColumns="False"  OnRowDataBound="grvPendencias_RowDataBound">
+            <asp:Label ID="lblTitulo" runat="server" Text="Lista de Pendências"></asp:Label>
+            <br />
+            <br />
+            <asp:HyperLink ID="hlCadastro" NavigateUrl="~/Paginas/CadastrarPendencia.aspx" runat="server">Nova Pendência</asp:HyperLink>
+            <br />
+            <br />
+            <asp:GridView ID="gvPendencias" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPendencias_RowDataBound">
                 <Columns>
                     <asp:BoundField DataField="pen_tipo" HeaderText="Tipo" />
-                    <asp:BoundField DataField="" HeaderText="Donwload" />
-                     
+                    <asp:BoundField DataField="pes_nome" HeaderText="Associado" />
+                    <asp:BoundField HeaderText="Documento" />
                 </Columns>
             </asp:GridView>
-            <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
         </div>
-        
+        <br />
+        <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
     </form>
 </body>
 </html>

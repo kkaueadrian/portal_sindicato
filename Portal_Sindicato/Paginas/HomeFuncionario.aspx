@@ -19,13 +19,13 @@
             <asp:HyperLink ID="hlAssociado" NavigateUrl="~/Paginas/ListarAssociados.aspx" runat="server">Lista de Associados</asp:HyperLink>
             <br />
             <br />
-            <asp:HyperLink ID="hlPendencia"  runat="server">Lista de Pêndencias</asp:HyperLink>
+            <asp:HyperLink ID="hlPendencia"  runat="server" NavigateUrl="~/Paginas/ListarPendenciaFuncionario.aspx">Lista de Pêndencias</asp:HyperLink>
             <br />
             <br />
-            <asp:HyperLink ID="hlServico" runat="server">Lista de Serviços</asp:HyperLink>
+            <asp:HyperLink ID="hlServico" runat="server" NavigateUrl="~/Paginas/ListarServico.aspx">Lista de Serviços</asp:HyperLink>
             <br />
             <br />
-            <asp:HyperLink ID="hlPublicacoes" runat="server">Lista de Publicações</asp:HyperLink>
+            <asp:HyperLink ID="hlPublicacoes" runat="server" NavigateUrl="~/Paginas/ListarPublicacao.aspx">Lista de Publicações</asp:HyperLink>
             <br />
             <br />
             <asp:LinkButton ID="lbSair" runat="server" OnClick="lbSair_Click">Sair</asp:LinkButton>
