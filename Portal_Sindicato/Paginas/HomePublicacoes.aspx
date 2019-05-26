@@ -13,8 +13,8 @@
    
             <asp:Label ID="lblTitulo" runat="server" Text="Lista de Publicações"></asp:Label>
    
-        </div>
-        <p>
+        
+        
             <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" >
                 <Columns>
                     <asp:BoundField HeaderText="Imagem" />
@@ -23,12 +23,33 @@
                     <asp:BoundField DataField="pub_tipo" HeaderText="Tipo" />
                 </Columns>
             </asp:GridView>
-        </p>
-        <p>
+       
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
-        </p>
-        <p>
-            &nbsp;</p>
+        
+            </div>
+        
+           
+        <div>
+
+            <asp:Repeater ID="rptPublicacoes" runat="server" OnItemCommand="Repeater1_ItemCommand">
+                <ItemTemplate>
+                    <div>
+                         <p>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#"../Upload/" + Eval("pub_imagem") %>' style='width:400px' />
+                         </p>
+                         <p>
+                             <asp:Label ID="lblDescricao" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "pub_descricao")%>'></asp:Label>
+                         </p>
+                         </div>
+                         </ItemTemplate>
+            </asp:Repeater>
+
+        
+        
+       
+        <asp:Label ID="lblMensagem2" runat="server" Text="Label"></asp:Label>
+        
+       </div>
     </form>
 </body>
 </html>

@@ -70,14 +70,29 @@ namespace persistencia
             objConexao.Dispose();
             return ds;
         }
-        public DataSet SelectAllByStatus()
+        public DataSet SelectAllByStatusAndEvent()
         {
             DataSet ds = new DataSet();
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM pub_publicacao WHERE pub_status = 1", objConexao);
+            objCommand = Mapped.Command("SELECT * FROM pub_publicacao WHERE pub_status = 1 and pub_tipo = 'Evento'", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+        public DataSet SelectAllByStatusAndSalles()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM pub_publicacao WHERE pub_status = 1 and pub_tipo = 'Classificados'", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
@@ -109,16 +124,15 @@ namespace persistencia
                 obj.Tipo = Convert.ToString(objDataReader["pub_tipo"]);
                 obj.Imagem = Convert.ToString(objDataReader["pub_imagem"]);
 
-
+                //método para buscar todos os campos do sindicato
                 SindicatoBD sindicatoBD = new SindicatoBD();
                 Sindicato sindicato = sindicatoBD.Select(Convert.ToInt32(objDataReader["sin_sindicato"]));               
                 obj.Sindicato = sindicato;
 
+                //método para buscar somente o código do sindicato
                 //Sindicato sindicato = new Sindicato();
                 //sindicato.Codigo = Convert.ToInt32(objDataReader["sin_sindicato"]);
                 //obj.Sindicato = sindicato;
-
-
             }
             objDataReader.Close();
             objConexao.Close();

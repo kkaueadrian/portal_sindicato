@@ -1,4 +1,5 @@
-﻿using persistencia;
+﻿using classes;
+using persistencia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,30 +10,66 @@ using System.Web.UI.WebControls;
 
 public partial class Paginas_HomePublicacoes : System.Web.UI.Page
 {
-    private void Carrega()
+    private void CarregaGv()
     {
         PublicacaoBD bd = new PublicacaoBD();
-        DataSet ds = bd.SelectAllByStatus();
+        DataSet ds = bd.SelectAllByStatusAndSalles();
         //verifica a quantidade de publicações no dataset
         int quantidade = ds.Tables[0].Rows.Count;
         if (quantidade > 0)
         {
+            Publicacao publicacao = new Publicacao();
+            {
+               
 
+                gvPublicacao.DataSource = ds.Tables[0].DefaultView;
+                gvPublicacao.DataBind();
 
-            gvPublicacao.DataSource = ds.Tables[0].DefaultView;
-            gvPublicacao.DataBind();
-            lblMensagem.Text = "Existem " + quantidade + " Publicações Ativas";
+                lblMensagem.Text = "Existem " + quantidade + " classificados Ativos";
+            }
         }
         else
         {
-            lblMensagem.Text = "Nenhuma Publicação Ativa!";
+            lblMensagem.Text = "Nenhum classificado ativo!";
+        }
+    }
+    private void Carregarpt()
+    {
+        PublicacaoBD bd = new PublicacaoBD();
+        DataSet ds = bd.SelectAllByStatusAndEvent();
+        //verifica a quantidade de publicações no dataset
+        int quantidade = ds.Tables[0].Rows.Count;
+        if (quantidade > 0)
+        {
+            Publicacao publicacao = new Publicacao();
+            {
+                rptPublicacoes.DataSource = ds.Tables[0].DefaultView;
+                rptPublicacoes.DataBind();
+
+                
+
+                lblMensagem2.Text = "Existem " + quantidade + " Publicações Ativas";
+            }
+        }
+        else
+        {
+            lblMensagem2.Text = "Nenhuma Publicação Ativa!";
         }
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+      
 
-        Carrega();
+        if (!Page.IsPostBack)
+        {
+            
+            
+                Carregarpt();
+            
+                CarregaGv();
+            
+        }
     }
 
 
@@ -47,5 +84,10 @@ public partial class Paginas_HomePublicacoes : System.Web.UI.Page
                 e.Row.Cells[0].Text = "<img src='http://localhost:54428/Upload/" + foto + "'style = 'width:250px' /> ";
             }
         }
+    }
+
+    protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+
     }
 }
