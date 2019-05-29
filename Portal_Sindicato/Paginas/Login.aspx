@@ -11,22 +11,22 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="lblTitulo" runat="server" Text="Login"></asp:Label>
-            <br />
-            <br />
+           
+            
             <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
-            <br />
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-            <br />
-            <br />
+           
+            
             <asp:Label ID="lblSenha" runat="server" Text="Senha:"></asp:Label>
-            <br />
             <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
-            <br />
-            <br />
+            
+            
             <asp:Button ID="btnEntrar" runat="server" Text="Entrar" OnClick="btnEntrar_Click" />
-            <br />
-            <br />
+            
+            <div>
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+            </div>
+
         </div>
     </form>
 </body>
