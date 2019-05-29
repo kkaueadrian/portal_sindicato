@@ -12,16 +12,16 @@ namespace persistencia
     /// </summary>
     public class PessoaBD
     {
-        public Pessoa Autentica(string email, string senha)
+        public Pessoa Autentica(string cpf, string senha)
         {
             Pessoa obj = null;
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
             System.Data.IDataReader objDataReader;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM pes_pessoa WHERE pes_email = ?email and pes_senha = ?senha", objConexao);
+            objCommand = Mapped.Command("SELECT * FROM pes_pessoa WHERE pes_cpf = ?cpf and pes_senha = ?senha", objConexao);
 
-            objCommand.Parameters.Add(Mapped.Parameter("?email", email));
+            objCommand.Parameters.Add(Mapped.Parameter("?cpf", cpf));
             objCommand.Parameters.Add(Mapped.Parameter("?senha", senha));
             objDataReader = objCommand.ExecuteReader();
 
@@ -30,7 +30,7 @@ namespace persistencia
                 obj = new Pessoa();
                 obj.Codigo = Convert.ToInt32(objDataReader["pes_codigo"]);
                 obj.Nome = Convert.ToString(objDataReader["pes_nome"]);
-                obj.Email = Convert.ToString(objDataReader["pes_email"]);
+                obj.Cpf = Convert.ToString(objDataReader["pes_cpf"]);
                 obj.Tipo = Convert.ToInt32(objDataReader["pes_tipo"]);
             }
             objDataReader.Close();
@@ -56,7 +56,7 @@ namespace persistencia
                 obj = new Pessoa();
                 obj.Codigo = Convert.ToInt32(objDataReader["pes_codigo"]);
                 obj.Nome = Convert.ToString(objDataReader["pes_nome"]);
-                obj.Email = Convert.ToString(objDataReader["pes_email"]);
+                obj.Cpf = Convert.ToString(objDataReader["pes_cpf"]);
                 obj.Tipo = Convert.ToInt32(objDataReader["pes_tipo"]);
             }
             objDataReader.Close();

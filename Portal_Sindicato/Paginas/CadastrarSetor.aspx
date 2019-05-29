@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CadastrarSetor.aspx.cs" Inherits="Paginas_CadastrarSetor" %>
+<script src="../Scripts/bootstrap.min.js"></script>
 
 <!DOCTYPE html>
 
@@ -9,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="height: 148px">
+        <div style="height: 148px" class ="container-fluid">
             <asp:Label ID="lblTitulo" runat="server" Text="Cadastro de setor"></asp:Label>
             <br />
             <asp:Label ID="lblTipo" runat="server" Text="Tipo"></asp:Label>

@@ -35,12 +35,12 @@ public partial class Paginas_Login : System.Web.UI.Page
 
     protected void btnEntrar_Click(object sender, EventArgs e)
     {
-        string email = txtEmail.Text.Trim();
+        string cpf = txtCpf.Text.Trim();
         string senha = txtSenha.Text.Trim();
-        if (!IsPreenchido(email))
+        if (!IsPreenchido(cpf))
         {
             lblMensagem.Text = "Preencha o email";
-            txtEmail.Focus();
+            txtCpf.Focus();
             return;
         }
         if (!IsPreenchido(senha))
@@ -51,11 +51,11 @@ public partial class Paginas_Login : System.Web.UI.Page
         }
         PessoaBD bd = new PessoaBD();
         Pessoa pessoa = new Pessoa();
-        pessoa = bd.Autentica(email, senha);
+        pessoa = bd.Autentica(cpf, senha);
         if (!UsuarioEncontrado(pessoa))
         {
             lblMensagem.Text = "Usuário não encontrado";
-            txtEmail.Focus();
+            txtCpf.Focus();
             return;
         }
         Session["ID"] = pessoa.Codigo;
