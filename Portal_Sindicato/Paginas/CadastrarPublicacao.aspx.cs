@@ -47,7 +47,7 @@ public partial class Paginas_CadastrarPublicacao : System.Web.UI.Page
             {
                 string arquivo = fuImagem.FileName;
                 //caminho onde a foto será salva
-                fuImagem.SaveAs(@"C:\Users\Pietro\source\repos\kkaueadrian\Portal_Sindicato\Portal_Sindicato\Upload\" + arquivo);
+                fuImagem.SaveAs(@"C:\Users\pl_ta\source\repos\kkaueadrian\Portal_Sindicato\Portal_Sindicato\Upload\" + arquivo);
 
 
                 SindicatoBD sindicatobd = new SindicatoBD();

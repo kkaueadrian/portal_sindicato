@@ -14,6 +14,15 @@
     <link href="../Content/HomePub/css/modern-business.css" rel="stylesheet" />
     <link href="../Content/HomePub/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <title>Home Sindicato</title>
+    <style>
+        #gv,#repeater{
+            float: left;
+        }
+        #dropped {
+            float: none;
+        }    
+
+    </style>
 </head>
 <body>
      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -87,13 +96,13 @@
       
             
         </div>
-<div >
+<div class="col-lg-9" id="repeater">
           
        <asp:Repeater ID="rptPublicacoes" runat="server" OnItemCommand="Repeater1_ItemCommand" >
        <ItemTemplate>
            <div class="col-lg-4 col-sm-6 portfolio-item"> 
        <div class="card h-100">
-          <asp:Image ID="Image1" runat="server" ImageUrl='<%#"../Upload/" + Eval("pub_imagem") %>' class="card-img-top"  />
+          <asp:Image ID="Image1" runat="server" ImageUrl='<%#"../Upload/" + Eval("pub_imagem") %>' class="card-img-top" width="500px" />
           <div class="card-body">
            <p class="card-text">
                 <asp:Label ID="lblDescricao" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "pub_descricao")%>'></asp:Label></p>
@@ -109,7 +118,7 @@
 
             <br />
 
-            
+            <div class="col-lg-3" id="gv">
             
             <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" >
                
@@ -123,10 +132,10 @@
        
                  
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
-            
+            </div>
 
             <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6" id="dropped">
         <h2>Modern Business Features</h2>
         <p>The Modern Business template by Start Bootstrap includes:</p>
         <ul>

@@ -81,7 +81,7 @@ public partial class Paginas_HomePublicacoes : System.Web.UI.Page
             string foto = Convert.ToString(drv["pub_imagem"]);
             if (foto != string.Empty)
             {
-                e.Row.Cells[0].Text = "<img src='http://localhost:54428/Upload/" + foto + "'style = 'width:250px' /> ";
+                e.Row.Cells[0].Text = "<img src='http://localhost:54428/Upload/" + foto + "'style = 'width:100px' /> ";
             }
         }
     }
