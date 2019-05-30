@@ -58,7 +58,6 @@ public partial class Paginas_CadastrarServico : System.Web.UI.Page
         servico.Descricao = txtDescricao.Text;
         servico.Status = ckdStatus.Checked;
         servico.Tipo = txtTipo.Text;
-        servico.Sindicato = sindicato;
         servico.Setor = setor;
       
 
