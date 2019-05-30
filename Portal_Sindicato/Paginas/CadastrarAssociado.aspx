@@ -5,13 +5,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
+    <script src="../Content/js/bootstrap.min.js"></script>
     <title></title>
 </head>
 <body>
+
+     <br />
+    <div class="form-style-8 ">
+        <h2>Cadastar Associado</h2>
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Label ID="lblTitulo" runat="server" Text="Cadastar Associado"></asp:Label>
+        
         <br />
         <br />
         <asp:Label ID="nome" runat="server" Text="Nome:"></asp:Label>
@@ -84,5 +90,6 @@
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Paginas/ListarAssociados.aspx">Lista</asp:HyperLink>
 
     </form>
+        </div>
 </body>
 </html>

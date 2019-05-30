@@ -5,16 +5,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <style type="text/css">
-        #form1 {
-            height: 296px;
-        }
-    </style>
+    <script src="../Content/js/bootstrap.min.js"></script>
+    <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
+    <title>Cadastrar Sindicato</title>
+    
+    <script type="text/javascript">
+//auto expand textarea
+function adjust_textarea(h) {
+    h.style.height = "20px";
+    h.style.height = (h.scrollHeight)+"px";
+}
+</script>
+   
 </head>
 <body>
+    <br />
+    <div class="form-style-8 " >
+        <h2>Cadastrar Sindicato</h2>
     <form id="form1" runat="server" dir="auto">
-        Cadastrar Sindicato<br />
+        
+
         <asp:Label ID="cnpj" runat="server" Text="CNPJ"></asp:Label>
         <br />
         <asp:TextBox ID="txtCnpj" runat="server" Width="279px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
@@ -36,7 +46,10 @@
         <br />
         <asp:Button ID="salvar" runat="server" OnClick="Button1_Click" Text="Salvar" />
         <br />
-        <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+        
+        <asp:Label ID="lblMensagem" runat="server" Text="" ></asp:Label>
     </form>
+
+        </div>
 </body>
-</html
+</html>

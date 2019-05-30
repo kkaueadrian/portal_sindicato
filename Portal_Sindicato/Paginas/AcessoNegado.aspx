@@ -13,7 +13,7 @@
             <asp:Label ID="lblTitulo" runat="server" Text="Você não tem permissão para acessar esta página! "></asp:Label>
             <br />
             <br />
-            <asp:HyperLink ID="HyperLink1" navigateUrl="~/Paginas/Login.aspx" runat="server">Retornar ao home</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" navigateUrl="~/Paginas/Login.aspx" runat="server">Fazer Login</asp:HyperLink>
         </div>
     </form>
 </body>
