@@ -96,11 +96,12 @@
       
             
         </div>
+            <div class="row">
 <div class="col-lg-9" id="repeater">
           
        <asp:Repeater ID="rptPublicacoes" runat="server" OnItemCommand="Repeater1_ItemCommand" >
        <ItemTemplate>
-           <div class="col-lg-4 col-sm-6 portfolio-item"> 
+           <div class="col-lg-8 col-sm-6 portfolio-item"> 
        <div class="card h-100">
           <asp:Image ID="Image1" runat="server" ImageUrl='<%#"../Upload/" + Eval("pub_imagem") %>' class="card-img-top" width="500px" />
           <div class="card-body">
@@ -133,6 +134,7 @@
                  
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
             </div>
+                </div>
 
             <div class="row">
       <div class="col-lg-6" id="dropped">
