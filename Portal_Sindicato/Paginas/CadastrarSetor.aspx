@@ -14,6 +14,7 @@
             margin-left: 150px;
             margin-right: 150px;
         }
+         
 
     </style>
 </head>
@@ -34,6 +35,8 @@
             <br />
             <br />
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+           
+
         </div>
         </form>
          </div>

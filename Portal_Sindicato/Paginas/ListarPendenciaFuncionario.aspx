@@ -14,7 +14,7 @@
             margin-left: 150px;
             margin-right: 150px;
         }
-        #hlCadastro{
+        #hlCadastro,#hlVoltar{
             
             background-color:cornflowerblue;
             text-decoration: none;
@@ -49,6 +49,9 @@
         </div>
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+        <br />
+            <br />
+            <asp:HyperLink ID="hlVoltar" runat="server" NavigateUrl="~/Paginas/HomeFuncionario.aspx">Voltar</asp:HyperLink>
     </form>
         </div>
 </body>
