@@ -40,10 +40,7 @@
         </asp:DropDownList>
         <br />
         <br />
-        <asp:Label ID="lblSindicato" runat="server" Text="Sindicato:"></asp:Label>
-        <br />
-        <asp:DropDownList ID="ddlSindicato" runat="server">
-        </asp:DropDownList>
+        
         <br />
         <br />
         <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />

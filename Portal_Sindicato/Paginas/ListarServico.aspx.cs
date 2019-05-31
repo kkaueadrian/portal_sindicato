@@ -12,14 +12,14 @@ public partial class Paginas_ListarServico : System.Web.UI.Page
     private void Carrega()
     {
         ServicoBD bd = new ServicoBD();
-        DataSet ds = bd.SelectAllWithsectorandsindicate();
+        DataSet ds = bd.SelectAllWithsector();
         gvServico.DataSource = ds.Tables[0].DefaultView;
         gvServico.DataBind();
     }
     protected void Page_Load(object sender, EventArgs e)
     {
         ServicoBD bd = new ServicoBD();
-        DataSet ds = bd.SelectAllWithsectorandsindicate();
+        DataSet ds = bd.SelectAllWithsector();
         //verifica a quantidade de associados no dataset
         int quantidade = ds.Tables[0].Rows.Count;
         if (quantidade > 0)
