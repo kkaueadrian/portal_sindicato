@@ -5,13 +5,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <script src="../Content/js/bootstrap.min.js"></script>
+    <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
+    <title>Cadastar Funcionario</title>
 </head>
 <body>
+
+        <br />
+    <div class="form-style-8 ">
+        <h2>Cadastar Funcionario</h2>
     <form id="form1" runat="server">
         <div>
             </div>
-        <asp:Label ID="lblTitulo" runat="server" Text="Cadastar Funcionario"></asp:Label>
+        
         <br />
          <br />
         <asp:Label ID="permissaoAdministrador" runat="server" Text="Permissão Administrador:"></asp:Label>
@@ -80,5 +86,6 @@
         <br />
         
     </form>
+        </div>
 </body>
 </html>

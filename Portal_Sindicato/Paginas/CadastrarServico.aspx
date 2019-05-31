@@ -5,13 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <script src="../Content/js/bootstrap.min.js"></script>
+    <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
+    <title>Cadastrar Servicos</title>
 </head>
 <body>
+    <br />
+    <div class="form-style-8 ">
+        <h2>Cadastrar Serviços</h2>
     <form id="form1" runat="server">
-        <div>
-        </div>
-        <asp:Label ID="lblTitulo" runat="server" Text="Cadastrar Serviços"></asp:Label>
+        
+        
+        <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
         <br />
         <br />
         <asp:Label ID="lblDescricao" runat="server" Text="Descrição:"></asp:Label>
@@ -45,6 +50,10 @@
         <br />
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+
+            
     </form>
+
+        </div>
 </body>
 </html>

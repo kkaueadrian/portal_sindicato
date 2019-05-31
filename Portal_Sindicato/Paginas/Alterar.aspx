@@ -5,12 +5,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <script src="../Content/js/bootstrap.min.js"></script>
+    <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
+    <title>Alterar Sindicato</title>
 </head>
 <body>
+    <br />
+    <div class="form-style-8 ">
+        <h2>Alterar Associado</h2>
     <form id="form1" runat="server">
         <div>
-             <asp:Label ID="lblTitulo" runat="server" Text="Alterar Sindicato"></asp:Label><br />
+            
         <asp:Label ID="cnpj" runat="server" Text="CNPJ"></asp:Label>
         <br />
         <asp:TextBox ID="txtCnpj" runat="server" Width="279px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
@@ -35,5 +40,6 @@
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
         </div>
     </form>
+        </div>
 </body>
 </html>
