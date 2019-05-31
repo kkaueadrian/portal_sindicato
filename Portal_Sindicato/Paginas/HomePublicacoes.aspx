@@ -53,22 +53,22 @@
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div class="carousel-item active" style="background-image: url('http://localhost:54428/Content/HomePub/Imagem/thumb-1920-62836.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Vaca test</h3>
-            <p>This is a description for the first slide.</p>
+            <h3>Vaca 1</h3>
+            <p>Discrição</p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('http://localhost:54428/Content/HomePub/Imagem/thumb-1920-366544.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
-            <p>This is a description for the second slide.</p>
+            <h3>Vaca 2</h3>
+            <p>Discrição</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('http://localhost:54428/Content/HomePub/Imagem/pexels-photo-689164.jpeg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p>
+            <h3>Café</h3>
+            <p>Discrição</p>
           </div>
         </div>
       </div>
@@ -141,20 +141,23 @@
             <div class="row">
       <div class="col-lg-6" id="dropped">
         <h2>Contato e Localização</h2>
-        <p>The Modern Business template by Start Bootstrap includes:</p>
+        
         <ul>
           <li>
-            <strong>Bootstrap v4</strong>
+            <strong>Telefone: (12) 3153-1743</strong>
           </li>
-          <li>jQuery</li>
-          <li>Font Awesome</li>
-          <li>Working contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
+          <li><strong>Celular: (12) 98207-0651</strong></li>
+          <li><strong>Horário de atendimento: 7:00h ás 17:00h de Segunda a Sexta.</strong></li>
+         
+          
         </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+          <h2>Sobre o Sindicato Rural de Lorena e Piquete</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit,<br /> quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.
+            Corporis, omnis doloremque non cum id reprehenderit, quisquam totam <br />aspernatur tempora minima unde aliquid ea culpa sunt.
+            Corporis, omnis doloremque non cum id reprehenderit, omnis doloremque non cum id reprehenderit.
       </div>
       <div class="col-lg-6">
-        MAP LOCAL
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d709.3948418495987!2d-45.12438504320183!3d-22.73250085434636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ccc8e91a1cc0b3%3A0xfcdb67289262cada!2sR.+Dom+B%C3%B4sco%2C+78+-+Centro%2C+Lorena+-+SP%2C+12600-100!5e0!3m2!1spt-BR!2sbr!4v1559331962468!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
     </div>
             </form>
