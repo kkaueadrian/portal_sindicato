@@ -1,0 +1,29 @@
+﻿
+.buttonformat {
+    background-color:cornflowerblue;
+    box-shadow: 0 5px 0 cornflowerblue;
+    color: white;
+    padding: 1em 1.5em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+    .buttonformat:hover {
+        background-color: navy;
+    }
+
+    .buttonformat:active {
+        box-shadow: none;
+        top: 5px;
+    }
+
+/* Non-Demo Styles */
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    background-image: url('../HomePub/Imagem/pexels-photo-934062.jpeg');
+}
+

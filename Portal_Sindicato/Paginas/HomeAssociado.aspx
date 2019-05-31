@@ -6,21 +6,51 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script src="../Content/js/bootstrap.min.js"></script>
+    <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
+    <link href="../Content/Cadastro%20CSS/LinkButton.css" rel="stylesheet" />
     <title>Home Associado</title>
+       <style>
+        #top{
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+         #link1,#link2{
+
+            
+            margin-top:50px;
+        }
+
+        
+
+        #lbSair{
+            
+            background-color:dimgray;
+            text-decoration: none;
+            color: snow;
+            padding: 1em 1.5em;
+            text-transform: uppercase;
+        }
+
+    </style>
 </head>
 <body>
+     <br />
+     <div id="top" class="form-style-8 " >
+        <h2><asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label></h2>
+        
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="lblPendencia" runat="server" Text="Consulte suas pêndencias "></asp:Label>
-            <br />
-            <asp:HyperLink ID="hlPendencia" NavigateUrl="~/Paginas/ListarPendenciaAssociado.aspx" runat="server">Aqui</asp:HyperLink>
-            <br />
-            <br />
+            
+        
+            <div id="link1">
+            <asp:HyperLink class="buttonformat" ID="hlPendencia" NavigateUrl="~/Paginas/ListarPendenciaAssociado.aspx" runat="server">Consultar Pendências</asp:HyperLink>
+                </div>
+            <div id="link2">
+             <asp:LinkButton ID="lbSair" runat="server" OnClick="lbSair_Click">Sair</asp:LinkButton>
+                </div>
         </div>
-        <asp:LinkButton ID="lbSair" runat="server" OnClick="lbSair_Click">Sair</asp:LinkButton>
+       
     </form>
+         </div>
 </body>
 </html>

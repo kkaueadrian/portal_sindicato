@@ -13,6 +13,7 @@
   <meta name="author" content=""/>
     <link href="../Content/HomePub/css/modern-business.css" rel="stylesheet" />
     <link href="../Content/HomePub/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/Cadastro%20CSS/GridViewCSS.css" rel="stylesheet" />
     <title>Home Sindicato</title>
     <style>
         #gv,#repeater{
@@ -97,7 +98,7 @@
             
         </div>
             <div class="row">
-<div class="col-lg-9" id="repeater">
+<div class="col-lg-9 sm-12" id="repeater">
           
        <asp:Repeater ID="rptPublicacoes" runat="server" OnItemCommand="Repeater1_ItemCommand" >
        <ItemTemplate>
@@ -119,9 +120,9 @@
 
             <br />
 
-            <div class="col-lg-3" id="gv">
+            <div class="col-lg-3 sm-12" id="gv">
             
-            <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" >
+            <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" >
                
                 <Columns>
                     <asp:BoundField HeaderText="Imagem"/>
@@ -135,10 +136,11 @@
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
             </div>
                 </div>
-
+            <br />
+             <br />
             <div class="row">
       <div class="col-lg-6" id="dropped">
-        <h2>Modern Business Features</h2>
+        <h2>Contato e Localização</h2>
         <p>The Modern Business template by Start Bootstrap includes:</p>
         <ul>
           <li>
@@ -152,7 +154,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
       </div>
       <div class="col-lg-6">
-        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt=""/>
+        MAP LOCAL
       </div>
     </div>
             </form>

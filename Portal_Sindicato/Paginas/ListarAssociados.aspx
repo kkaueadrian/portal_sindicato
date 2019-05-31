@@ -6,23 +6,43 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script src="../Content/js/bootstrap.min.js"></script>
+    <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
+    <link href="../Content/Cadastro%20CSS/GridViewCSS.css" rel="stylesheet" />
     <title>Lista Associados</title>
     <style type="text/css">
         #form1 {
             height: 231px;
         }
-    </style>
+         
+        #top{
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+        #hlCadastrar{
+            
+            background-color:cornflowerblue;
+            text-decoration: none;
+            color: snow;
+            padding: 1em 1.5em;
+            text-transform: uppercase;
+        }
+        body {
+            background-image: url(http://localhost:54428/Content/HomePub/Imagem/photo-1486312338219-ce68d2c6f44d.jpg)
+        }
+   </style>
 </head>
 <body>
+    <br />
+    <div id="top" class="form-style-8 ">
+        <h2>Lista de Associados</h2>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblTitulo" runat="server" Text="Lista de Associados"></asp:Label>
-        
+            
+       
+        <asp:HyperLink ID="hlCadastrar" runat="server" NavigateUrl="~/Paginas/CadastrarAssociado.aspx">Cadastrar novo associado</asp:HyperLink>
             <br />
-        
-        <asp:HyperLink ID="hlCadastroSin" runat="server" NavigateUrl="~/Paginas/CadastrarAssociado.aspx">Cadastrar novo associado</asp:HyperLink>
             <br />
-        <asp:GridView ID="grvAssociados" runat="server" AutoGenerateColumns="False"  OnRowCommand="grvAssociados_RowCommand">
+        <asp:GridView ID="grvAssociados" runat="server" AutoGenerateColumns="False"  OnRowCommand="grvAssociados_RowCommand" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr">
             <Columns>
                 <asp:BoundField DataField="pes_codigo" HeaderText="Codigo" />
                 <asp:BoundField DataField="pes_nome" HeaderText="Nome" />
@@ -54,6 +74,7 @@
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
             </div>
         </form>
+        </div>
     </body>
-
+    </html>
         

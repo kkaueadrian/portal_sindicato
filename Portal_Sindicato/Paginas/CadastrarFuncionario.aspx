@@ -8,11 +8,18 @@
     <script src="../Content/js/bootstrap.min.js"></script>
     <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
     <title>Cadastar Funcionario</title>
+    <style>
+        #top{
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+
+    </style>
 </head>
 <body>
 
         <br />
-    <div class="form-style-8 ">
+    <div id="top" class="form-style-8">
         <h2>Cadastar Funcionario</h2>
     <form id="form1" runat="server">
         <div>

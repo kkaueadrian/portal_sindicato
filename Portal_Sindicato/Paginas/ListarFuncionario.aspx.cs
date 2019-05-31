@@ -32,7 +32,7 @@ public partial class Paginas_ListarFuncionario : System.Web.UI.Page
 
             gvFuncionario.DataSource = ds.Tables[0].DefaultView;
             gvFuncionario.DataBind();
-            lblMensagem.Text = "Existem " + quantidade + " Funcionario cadastrados";
+            lblMensagem.Text = "Existem " + quantidade + " Funcionários cadastrados";
         }
         else
         {

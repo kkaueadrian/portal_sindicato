@@ -6,18 +6,40 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script src="../Content/js/bootstrap.min.js"></script>
+    <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
+    <link href="../Content/Cadastro%20CSS/GridViewCSS.css" rel="stylesheet" />
     <title>Lista de Funcionario</title>
+      <style>
+        #top{
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+        #hlCadastrar{
+            
+            background-color:cornflowerblue;
+            text-decoration: none;
+            color: snow;
+            padding: 1em 1.5em;
+            text-transform: uppercase;
+        }
+        body {
+            background-image: url(http://localhost:54428/Content/HomePub/Imagem/photo-1486312338219-ce68d2c6f44d.jpg)
+        }
+    </style>
 </head>
 <body>
+    <br />
+    <div id="top" class="form-style-8 ">
+        <h2>Lista de Funcionários</h2>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblTitulo" runat="server" Text="Funcionarios Cadastrados"></asp:Label>
+            
+            
+            <asp:HyperLink ID="hlCadastrar" runat="server" NavigateUrl="~/Paginas/CadastrarFuncionario.aspx">Novo Funcionário</asp:HyperLink>
             <br />
-            <br />
-            <asp:HyperLink ID="hlCadastrar" runat="server" NavigateUrl="~/Paginas/CadastrarFuncionario.aspx">Novo Funcionario</asp:HyperLink>
             <br />
         </div>
-        <asp:GridView ID="gvFuncionario" runat="server" AutoGenerateColumns="False" OnRowCommand="gvFuncionario_RowCommand1" >
+        <asp:GridView ID="gvFuncionario" runat="server" AutoGenerateColumns="False" OnRowCommand="gvFuncionario_RowCommand1" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" >
             <Columns>
                 <asp:BoundField DataField="pes_codigo" HeaderText="Codigo" />
                 <asp:BoundField DataField="pes_permissao_administrador" HeaderText="Pemissão de Administrador" />
@@ -46,5 +68,6 @@
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
     </form>
+        </div>
 </body>
 </html>

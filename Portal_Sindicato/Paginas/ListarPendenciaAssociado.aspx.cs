@@ -22,7 +22,7 @@ public partial class Paginas_ListarPendenciaAssociado : System.Web.UI.Page
 
             grvPendencias.DataSource = ds.Tables[0].DefaultView;
             grvPendencias.DataBind();
-            lblMensagem.Text = "Existem " + quantidade + " Pendencias cadastrados";
+            lblMensagem.Text = "Existem " + quantidade + " Pendências cadastrados";
         }
         else
         {

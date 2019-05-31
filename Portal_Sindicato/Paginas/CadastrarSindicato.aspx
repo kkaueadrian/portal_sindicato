@@ -8,19 +8,20 @@
     <script src="../Content/js/bootstrap.min.js"></script>
     <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
     <title>Cadastrar Sindicato</title>
+      <style>
+        #top{
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+
+    </style>
     
-    <script type="text/javascript">
-//auto expand textarea
-function adjust_textarea(h) {
-    h.style.height = "20px";
-    h.style.height = (h.scrollHeight)+"px";
-}
-</script>
+
    
 </head>
 <body>
     <br />
-    <div class="form-style-8 " >
+    <div id="top" class="form-style-8 " >
         <h2>Cadastrar Sindicato</h2>
     <form id="form1" runat="server" dir="auto">
         
