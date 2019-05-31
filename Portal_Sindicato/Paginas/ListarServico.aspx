@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <script src="../Content/js/bootstrap.min.js"></script>
+    <title>Listar Servico</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -23,7 +24,7 @@
                     <asp:BoundField DataField="ser_status" HeaderText="Ativo" />
                     <asp:BoundField DataField="ser_tipo" HeaderText="Tipo" />
                     <asp:BoundField DataField="set_tipo" HeaderText="Setor" />
-                    <asp:BoundField DataField="sin_razao_social" HeaderText="Sindicato" />
+                    
                     <asp:TemplateField>
                     <ItemTemplate>
                     <asp:LinkButton ID="lbDeletar" runat="server" CommandName="Deletar" CommandArgument='<%# Bind("ser_codigo")%>'>Excluir</asp:LinkButton>

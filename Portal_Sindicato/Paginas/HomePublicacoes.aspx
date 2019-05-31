@@ -77,17 +77,8 @@
     <div class="container">
     
         <form id="form1" runat="server">
-        <div>
-   
-           
-   
-            <h2>Lista de Publicações</h2>
-   
-        <br />
-      
-            
-        </div>
-<div >
+  <br />
+<div class="row col-md-12" >
           
        <asp:Repeater ID="rptPublicacoes" runat="server" OnItemCommand="Repeater1_ItemCommand" >
        <ItemTemplate>
@@ -104,13 +95,10 @@
        </asp:Repeater>
 
 </div>
-   
-           
+         <br />
 
-            <br />
-
-            
-            
+            <div class="row">
+            <div class="col-md-12">
             <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" >
                
                 <Columns>
@@ -120,10 +108,12 @@
                     <asp:BoundField DataField="pub_tipo" HeaderText="Tipo" />
                 </Columns>
             </asp:GridView>
-       
-                 
+       </div>
+               </div>  
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
             
+            <br />
+
 
             <div class="row">
       <div class="col-lg-6">
