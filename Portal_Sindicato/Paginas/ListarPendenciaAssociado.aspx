@@ -17,6 +17,14 @@
         body {
             background-image: url(http://localhost:54428/Content/HomePub/Imagem/photo-1486312338219-ce68d2c6f44d.jpg)
         }
+        #hlVoltar{
+            
+            background-color:cornflowerblue;
+            text-decoration: none;
+            color: snow;
+            padding: 1em 1.5em;
+            text-transform: uppercase;
+        }
       </style>
 
 </head>
@@ -35,6 +43,9 @@
                 </Columns>
             </asp:GridView>
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+            <br />
+            <br />
+            <asp:HyperLink ID="hlVoltar" runat="server" NavigateUrl="~/Paginas/HomeAssociado.aspx">Voltar</asp:HyperLink>
         </div>
         
     </form>

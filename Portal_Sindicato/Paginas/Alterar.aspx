@@ -13,6 +13,14 @@
             margin-left: 150px;
             margin-right: 150px;
         }
+         #hlLista{
+            
+            background-color:cornflowerblue;
+            text-decoration: none;
+            color: snow;
+            padding: 1em 1.5em;
+            text-transform: uppercase;
+        }
 
     </style>
 </head>
@@ -45,6 +53,9 @@
         <asp:Button ID="salvar" runat="server" OnClick="Button1_Click" Text="Salvar" />
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+            <br />
+            <br />
+            <asp:HyperLink ID="hlLista" runat="server" NavigateUrl="~/Paginas/ListarSindicato.aspx">Voltar a lista</asp:HyperLink>
         </div>
     </form>
         </div>

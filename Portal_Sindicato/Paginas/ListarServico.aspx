@@ -14,7 +14,7 @@
             margin-left: 150px;
             margin-right: 150px;
         }
-        #hlServico{
+        #hlServico,#hlVoltar{
             
             background-color:cornflowerblue;
             text-decoration: none;
@@ -55,6 +55,9 @@
            </asp:GridView>
             <br />
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+             <br />
+            <br />
+            <asp:HyperLink ID="hlVoltar" runat="server" NavigateUrl="~/Paginas/HomeFuncionario.aspx">Voltar</asp:HyperLink>
         </div>
     </form>
         </div>

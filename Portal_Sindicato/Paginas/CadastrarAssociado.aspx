@@ -13,6 +13,14 @@
             margin-left: 150px;
             margin-right: 150px;
         }
+        #hlLista{
+            
+            background-color:cornflowerblue;
+            text-decoration: none;
+            color: snow;
+            padding: 1em 1.5em;
+            text-transform: uppercase;
+        }
 
     </style>
 </head>
@@ -93,8 +101,9 @@
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
 
-        <br />
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Paginas/ListarAssociados.aspx">Lista</asp:HyperLink>
+         <br />
+             <br />
+            <asp:HyperLink ID="hlLista" runat="server" NavigateUrl="~/Paginas/ListarAssociados.aspx">Voltar a lista</asp:HyperLink>
 
     </form>
         </div>

@@ -13,6 +13,14 @@
             margin-left: 150px;
             margin-right: 150px;
         }
+        #hlLista{
+            
+            background-color:cornflowerblue;
+            text-decoration: none;
+            color: snow;
+            padding: 1em 1.5em;
+            text-transform: uppercase;
+        }
 
     </style>
 </head>
@@ -47,6 +55,9 @@
         <br />
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+        <br />
+             <br />
+        <asp:HyperLink ID="hlLista" runat="server" NavigateUrl="~/Paginas/ListarPendenciaFuncionario.aspx">Voltar a lista</asp:HyperLink>
     </form>
         </div>
 </body>
