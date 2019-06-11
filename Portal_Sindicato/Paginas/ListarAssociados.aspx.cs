@@ -70,11 +70,7 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
                 Response.Redirect("AlterarAssociado.aspx");
                 break;
 
-            case "AlterarSenha":
-                codigo = Convert.ToInt32(e.CommandArgument);
-                Session["ID"] = codigo;
-                Response.Redirect("AlterarAssociado.aspx");
-                break;
+           
 
             case "Deletar":
                 codigo = Convert.ToInt32(e.CommandArgument);

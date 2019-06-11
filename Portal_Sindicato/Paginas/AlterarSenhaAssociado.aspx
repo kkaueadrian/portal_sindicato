@@ -19,7 +19,7 @@
         <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Button ID="btnAlterar" runat="server" Text="Alterar" />
+        <asp:Button ID="btnAlterar" runat="server" Text="Alterar" OnClick="btnAlterar_Click" />
         <br />
         <br />
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>

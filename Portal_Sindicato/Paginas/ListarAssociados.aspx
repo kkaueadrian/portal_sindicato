@@ -61,11 +61,7 @@
                 <asp:LinkButton ID="lbAlterar" runat="server" CommandName="Alterar" CommandArgument='<%# Bind("pes_codigo")%>'>Alterar</asp:LinkButton>
                 </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField>
-                <ItemTemplate>
-                <asp:LinkButton ID="lbAlterarSenha" runat="server" CommandName="AlterarSenha" CommandArgument='<%# Bind("pes_codigo")%>'>Alterar Senha</asp:LinkButton>
-                </ItemTemplate>
-                </asp:TemplateField>
+               
                 <asp:TemplateField>
                 <ItemTemplate>
                 <asp:LinkButton ID="lbDeletar" runat="server" CommandName="Deletar" CommandArgument='<%# Bind("pes_codigo")%>'>Excluir</asp:LinkButton>

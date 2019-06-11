@@ -27,13 +27,14 @@ public partial class Paginas_AlterarSenhaAssociado : System.Web.UI.Page
 
     }
 
-    protected void btnSalvar_Click(object sender, EventArgs e)
-    {
-      
+   
 
+
+    protected void btnAlterar_Click(object sender, EventArgs e)
+    {
         AssociadoBD bd = new AssociadoBD();
         Associado associado = bd.Select(Convert.ToInt32(Session["ID"]));
-    
+
         associado.Senha = txtSenha.Text;
 
         if (bd.UpdatePassword(associado))
@@ -47,5 +48,4 @@ public partial class Paginas_AlterarSenhaAssociado : System.Web.UI.Page
         }
 
     }
-   
 }

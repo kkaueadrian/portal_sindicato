@@ -146,7 +146,6 @@ namespace persistencia
             string sql = "UPDATE pes_pessoa SET pes_senha = ?senha";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
-          
             objCommand.Parameters.Add(Mapped.Parameter("?senha", associado.Senha));
             objCommand.ExecuteNonQuery();
             objConexao.Close();
