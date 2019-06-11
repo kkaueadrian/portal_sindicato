@@ -44,6 +44,12 @@
         
             <div id="link1">
             <asp:HyperLink class="buttonformat" ID="hlPendencia" NavigateUrl="~/Paginas/ListarPendenciaAssociado.aspx" runat="server">Consultar Pendências</asp:HyperLink>
+                <br />
+                <br />
+                <br />
+               
+                <asp:HyperLink ID="hlAlterarSenha" NavigateUrl="~/Paginas/AlterarSenhaAssociado.aspx" runat="server">Alterar Senha</asp:HyperLink>
+               
                 </div>
             <div id="link2">
              <asp:LinkButton ID="lbSair" runat="server" OnClick="lbSair_Click">Sair</asp:LinkButton>
