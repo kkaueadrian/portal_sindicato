@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ListarPendenciaFuncionario.aspx.cs" Inherits="Paginas_ListarPendenciaFuncionario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PesquisarPendencias.aspx.cs" Inherits="Paginas_PesquisarPendencias" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script src="../Content/js/bootstrap.min.js"></script>
+     <script src="../Content/js/bootstrap.min.js"></script>
     <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
     <link href="../Content/Cadastro%20CSS/GridViewCSS.css" rel="stylesheet" />
     <title>Listar Pendencia Funcionario</title>
@@ -61,3 +61,4 @@
         </div>
 </body>
 </html>
+

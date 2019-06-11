@@ -58,16 +58,16 @@ namespace persistencia
             objConexao.Dispose();
             return ds;
         }
-        public DataSet SearchAll(Associado associado)
+        public DataSet SearchAll(string termo)
         {
             DataSet ds = new DataSet();
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM pes_pessoa where pes_tipo = 0 and nome like %?termo%", objConexao);
+            objCommand = Mapped.Command("SELECT * FROM pes_pessoa p inner join sin_sindicato s on s.sin_codigo = p.sin_codigo where pes_tipo = 0 and pes_nome like ?termo", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
-            objCommand.Parameters.Add(Mapped.Parameter("?termo", associado.Nome));
+            objCommand.Parameters.Add(Mapped.Parameter("?termo", termo));
             objDataAdapter.Fill(ds);
             objConexao.Close();
             objCommand.Dispose();

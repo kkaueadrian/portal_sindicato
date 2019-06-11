@@ -17,7 +17,8 @@ public partial class Paginas_HomeFuncionario : System.Web.UI.Page
             retorno = true;
         }
         return retorno;
-    }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         int codigo = Convert.ToInt32(Session["ID"]);

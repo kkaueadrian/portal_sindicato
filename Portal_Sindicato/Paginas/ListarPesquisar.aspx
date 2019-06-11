@@ -45,7 +45,7 @@
 
 
             <asp:TextBox ID="txtTermo" runat="server"></asp:TextBox>
-            <asp:LinkButton ID="lbBuscar" runat="server" CommandArgument='<%# Bind(txtTermo.Text)%>' OnClick="lbBuscar_Click">Buscar</asp:LinkButton>
+            <asp:LinkButton ID="lbBuscar" runat="server"  OnClick="lbBuscar_Click">Buscar</asp:LinkButton>
 
 
 

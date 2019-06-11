@@ -83,13 +83,11 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
         }
     }
 
+
+
     protected void lbBuscar_Click(object sender, EventArgs e)
     {
-        LinkButton btn = (LinkButton)(sender);
-        string termo = btn.CommandArgument;
-        Response.Redirect("ListarPesquisar.aspx");
-                            
-                        
-       
+        string termo = txtTermo.Text;
+        Response.Redirect("ListarPesquisar.aspx?Parametro="+termo);
     }
 }

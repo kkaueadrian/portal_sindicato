@@ -35,12 +35,15 @@
     <form id="form1" runat="server">
         <div>
             
-            <asp:GridView ID="grvPendencias" runat="server" AutoGenerateColumns="False"  OnRowDataBound="grvPendencias_RowDataBound" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr">
+            <asp:GridView ID="grvPendencias" runat="server" AutoGenerateColumns="False"  OnRowDataBound="grvPendencias_RowDataBound" Width="600px" AllowPaging="True" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
-                    <asp:BoundField DataField="pen_tipo" HeaderText="Tipo" />
+                    <asp:BoundField DataField="pen_tipo" HeaderText="Descrição" />
                     <asp:BoundField DataField="" HeaderText="Donwload" />
                      
                 </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
             <br />

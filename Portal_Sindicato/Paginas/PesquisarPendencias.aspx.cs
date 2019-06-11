@@ -6,35 +6,36 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
+public partial class Paginas_PesquisarPendencias : System.Web.UI.Page
 {
     private void Carrega()
     {
-        PendenciaBD bd = new PendenciaBD();
-        DataSet ds = bd.SelectAllWithAssociate();
-        gvPendencias.DataSource = ds.Tables[0].DefaultView;
-        gvPendencias.DataBind();
-        //verifica a quantidade de associados no dataset
-        int quantidade = ds.Tables[0].Rows.Count;
-        if (quantidade > 0)
-        {
-
-
-            gvPendencias.DataSource = ds.Tables[0].DefaultView;
-            gvPendencias.DataBind();
-            lblMensagem.Text = "Existem " + quantidade + " Pendencias cadastrados";
-        }
-        else
-        {
-            lblMensagem.Text = "Nenhuma Pendencia cadastrado";
-        }
+        
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
-            Carrega();
+            string termo = Request.QueryString["Parametro"];
+            PendenciaBD bd = new PendenciaBD();
+            DataSet ds = bd.SearchAllWithAssociate(termo);
+            gvPendencias.DataSource = ds.Tables[0].DefaultView;
+            gvPendencias.DataBind();
+            //verifica a quantidade de associados no dataset
+            int quantidade = ds.Tables[0].Rows.Count;
+            if (quantidade > 0)
+            {
+
+
+                gvPendencias.DataSource = ds.Tables[0].DefaultView;
+                gvPendencias.DataBind();
+                lblMensagem.Text = "Existem " + quantidade + " Pendencias cadastrados";
+            }
+            else
+            {
+                lblMensagem.Text = "Nenhuma Pendencia cadastrado";
+            }
         }
     }
 
@@ -55,8 +56,6 @@ public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
     protected void lbPesquisar_Click(object sender, EventArgs e)
     {
         string termo = txtPesquisar.Text;
-        Response.Redirect("PesquisarPendencias.aspx?Parametro="+termo);
+        Response.Redirect("PesquisarPendencias.aspx?Parametro=" + termo);
     }
-
-    
 }

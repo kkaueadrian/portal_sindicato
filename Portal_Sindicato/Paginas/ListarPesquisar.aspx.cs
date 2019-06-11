@@ -21,24 +21,24 @@ public partial class Paginas_ListarPesquisar : System.Web.UI.Page
     }
     private void Carrega()
     {
-        AssociadoBD bd = new AssociadoBD();
-        DataSet ds = bd.SearchAll(termo);
-        grvAssociados.DataSource = ds.Tables[0].DefaultView;
-        grvAssociados.DataBind();
+       
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        string termo = Request.QueryString["Parametro"];
+            Carrega();
         int codigo = Convert.ToInt32(Session["ID"]);
         PessoaBD bf = new PessoaBD();
         Pessoa pessoa = bf.Select(codigo);
+
         if (!IsFuncionario(pessoa.Tipo))
         {
             Response.Redirect("AcessoNegado.aspx");
         }
-
         AssociadoBD bd = new AssociadoBD();
-        DataSet ds = bd.SelectAllWithSindicate();
-        //verifica a quantidade de associados no dataset
+        DataSet ds = bd.SearchAll(termo);
+        grvAssociados.DataSource = ds.Tables[0].DefaultView;
+        grvAssociados.DataBind();
         int quantidade = ds.Tables[0].Rows.Count;
         if (quantidade > 0)
         {
@@ -52,7 +52,10 @@ public partial class Paginas_ListarPesquisar : System.Web.UI.Page
         {
             lblMensagem.Text = "Nenhum Associado cadastrado";
         }
-        Carrega();
+
+        //verifica a quantidade de associados no dataset
+
+
 
 
     }
@@ -82,6 +85,7 @@ public partial class Paginas_ListarPesquisar : System.Web.UI.Page
 
     protected void lbBuscar_Click(object sender, EventArgs e)
     {
-        Response.Redirect("ListarPesquisar.aspx");
+        string termo = txtTermo.Text;
+        Response.Redirect("ListarPesquisar.aspx?Parametro="+termo);
     }
 }
