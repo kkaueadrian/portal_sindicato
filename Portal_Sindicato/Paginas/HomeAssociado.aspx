@@ -14,7 +14,7 @@
             margin-left: 150px;
             margin-right: 150px;
         }
-         #link1,#link2{
+         #link1,#link2,#link3{
 
             
             margin-top:50px;
@@ -45,7 +45,10 @@
             <div id="link1">
             <asp:HyperLink class="buttonformat" ID="hlPendencia" NavigateUrl="~/Paginas/ListarPendenciaAssociado.aspx" runat="server">Consultar Pendências</asp:HyperLink>
                 </div>
-            <div id="link2">
+             <div id="link2">
+            <asp:HyperLink class="buttonformat" ID="HyperLink1" NavigateUrl="~/Paginas/ListarServico.aspx" runat="server">Consultar Serviços</asp:HyperLink>
+                </div>
+            <div id="link3">
              <asp:LinkButton ID="lbSair" runat="server" OnClick="lbSair_Click">Sair</asp:LinkButton>
                 </div>
         </div>

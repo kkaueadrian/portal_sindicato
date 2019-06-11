@@ -1,4 +1,5 @@
-﻿using persistencia;
+﻿using classes;
+using persistencia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,6 +22,7 @@ public partial class Paginas_ListarServico : System.Web.UI.Page
         ServicoBD bd = new ServicoBD();
         DataSet ds = bd.SelectAllWithsector();
         //verifica a quantidade de associados no dataset
+        
         int quantidade = ds.Tables[0].Rows.Count;
         if (quantidade > 0)
         {
@@ -32,6 +34,7 @@ public partial class Paginas_ListarServico : System.Web.UI.Page
         }
         else
         {
+            
             lblMensagem.Text = "Nenhum Servico cadastrado";
         }
         Carrega();

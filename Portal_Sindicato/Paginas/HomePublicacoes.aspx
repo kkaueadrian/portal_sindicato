@@ -91,14 +91,14 @@
    
            
    
-            <h2>Lista de Publicações</h2>
+            <h2>Publicações</h2>
    
         <br />
       
             
         </div>
             <div class="row">
-<div class="col-lg-9 sm-12" id="repeater">
+<div class="col-md-9 sm-12" id="repeater">
           
        <asp:Repeater ID="rptPublicacoes" runat="server" OnItemCommand="Repeater1_ItemCommand" >
        <ItemTemplate>
@@ -120,15 +120,15 @@
 
             <br />
 
-            <div class="col-lg-3 sm-12" id="gv">
+            <div class="col-md-3 sm-12" id="gv">
             
-            <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" >
+            <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" Width="350px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" >
                
                 <Columns>
                     <asp:BoundField HeaderText="Imagem"/>
                     <asp:BoundField DataField="pub_endereco" HeaderText="Endereço" />
                     <asp:BoundField DataField="pub_descricao" HeaderText="Descrição" />
-                    <asp:BoundField DataField="pub_tipo" HeaderText="Tipo" />
+                    
                 </Columns>
             </asp:GridView>
        
