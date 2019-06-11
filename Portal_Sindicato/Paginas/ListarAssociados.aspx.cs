@@ -69,6 +69,9 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
                 Session["ID"] = codigo;
                 Response.Redirect("AlterarAssociado.aspx");
                 break;
+
+           
+
             case "Deletar":
                 codigo = Convert.ToInt32(e.CommandArgument);
                 AssociadoBD bd = new AssociadoBD();

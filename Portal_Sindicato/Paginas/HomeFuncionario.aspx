@@ -16,7 +16,7 @@
             margin-right: 130px;
         }
 
-        #link1,#link2,#link3,#link4,#link5,#link6{
+        #link1,#link2,#link3,#link4,#link5,#link6,#link7{
 
             
             margin-top:50px;
@@ -70,8 +70,11 @@
             <asp:HyperLink class="buttonformat" ID="hlPublicacoes" runat="server" NavigateUrl="~/Paginas/ListarPublicacao.aspx">Lista de Publicações</asp:HyperLink>
                 <asp:Label runat="server" Text=" "/>
              </div>
-           
-           <div id="link6" class="row" >
+           <div id="link6" class="col-md-2">
+            <asp:HyperLink class="buttonformat" ID="HyperLink1" runat="server" NavigateUrl="~/Paginas/CadastrarSindicato.aspx">Cadastrar Sindicatos</asp:HyperLink>
+                <asp:Label runat="server" Text=" "/>
+             </div>
+           <div id="link7" class="row" >
           <asp:LinkButton  ID="lbSair" runat="server" OnClick="lbSair_Click">Sair</asp:LinkButton>
                </div>
             </div>

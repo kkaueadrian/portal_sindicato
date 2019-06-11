@@ -154,8 +154,23 @@ namespace persistencia
             objConexao.Dispose();
             return true;
         }
-        //delete
-        public bool Delete(int id)
+
+        public bool UpdatePassword(Associado associado)
+        {
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            string sql = "UPDATE pes_pessoa SET pes_senha = ?senha";
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?senha", associado.Senha));
+            objCommand.ExecuteNonQuery();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return true;
+        }
+            //delete
+            public bool Delete(int id)
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
