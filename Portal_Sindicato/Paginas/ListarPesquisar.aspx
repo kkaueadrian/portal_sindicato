@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ListarAssociados.aspx.cs" Inherits="Paginas_ListarAssociados" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ListarPesquisar.aspx.cs" Inherits="Paginas_ListarPesquisar" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script src="../Content/js/bootstrap.min.js"></script>
+ <script src="../Content/js/bootstrap.min.js"></script>
     <link href="../Content/Cadastro%20CSS/Cadastro.css" rel="stylesheet" />
     <link href="../Content/Cadastro%20CSS/GridViewCSS.css" rel="stylesheet" />
     <title>Lista Associados</title>
@@ -45,7 +45,7 @@
 
 
             <asp:TextBox ID="txtTermo" runat="server"></asp:TextBox>
-            <asp:LinkButton ID="lbBuscar" runat="server" CommandArgument="txtTermo.Text.ToString" OnClick="lbBuscar_Click">Buscar</asp:LinkButton>
+            <asp:LinkButton ID="lbBuscar" runat="server" CommandArgument='<%# Bind(txtTermo.Text)%>' OnClick="lbBuscar_Click">Buscar</asp:LinkButton>
 
 
 
@@ -89,4 +89,3 @@
         </div>
     </body>
     </html>
-        

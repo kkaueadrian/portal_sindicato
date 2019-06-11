@@ -57,6 +57,22 @@ namespace persistencia
             objCommand.Dispose();
             objConexao.Dispose();
             return ds;
+        }
+        public DataSet SearchAll(Associado associado)
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM pes_pessoa where pes_tipo = 0 and nome like %?termo%", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objCommand.Parameters.Add(Mapped.Parameter("?termo", associado.Nome));
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
         }        public DataSet SelectAllWithSindicate()
         {
             DataSet ds = new DataSet();

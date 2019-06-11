@@ -1,14 +1,14 @@
-﻿using System;
+﻿using classes;
+using persistencia;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using persistencia;
-using classes;
 
-public partial class Paginas_ListarAssociados : System.Web.UI.Page
+public partial class Paginas_ListarPesquisar : System.Web.UI.Page
 {
     private bool IsFuncionario(int tipo)
     {
@@ -22,7 +22,7 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
     private void Carrega()
     {
         AssociadoBD bd = new AssociadoBD();
-        DataSet ds = bd.SelectAllWithSindicate();
+        DataSet ds = bd.SearchAll(termo);
         grvAssociados.DataSource = ds.Tables[0].DefaultView;
         grvAssociados.DataBind();
     }
@@ -41,9 +41,9 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
         //verifica a quantidade de associados no dataset
         int quantidade = ds.Tables[0].Rows.Count;
         if (quantidade > 0)
-        { 
-            
- 
+        {
+
+
             grvAssociados.DataSource = ds.Tables[0].DefaultView;
             grvAssociados.DataBind();
             lblMensagem.Text = "Existem " + quantidade + " Associados cadastrados";
@@ -54,7 +54,7 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
         }
         Carrega();
 
-        
+
     }
 
 
@@ -82,11 +82,6 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
 
     protected void lbBuscar_Click(object sender, EventArgs e)
     {
-        LinkButton btn = (LinkButton)(sender);
-        string termo = btn.CommandArgument;
         Response.Redirect("ListarPesquisar.aspx");
-                            
-                        
-       
     }
 }

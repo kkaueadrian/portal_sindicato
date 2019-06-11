@@ -63,7 +63,7 @@ namespace persistencia
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM pes_pessoa p inner join sin_sindicato si on p.sin_codigo = si.sin_codigo inner join set_setor se on p.set_codigo = se.set_codigo  where pes_tipo = 1 order by pes_codigo", objConexao);
+            objCommand = Mapped.Command("SELECT * FROM pes_pessoa p inner join set_setor se on p.set_codigo = se.set_codigo  where pes_tipo = 1 order by pes_codigo", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
