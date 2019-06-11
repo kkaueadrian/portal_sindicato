@@ -70,7 +70,7 @@ public partial class Paginas_AlterarAssociado : System.Web.UI.Page
         associado.Ie = txtIe.Text;
         associado.Caepf = txtCaepf.Text;
         associado.Sindicato = sindicato;
-        if (bd.Update(associado))
+        if (bd.UpdatePassword(associado))
         {
             lblMensagem.Text = "Associado alterado com sucesso ";
             txtNome.Focus();
