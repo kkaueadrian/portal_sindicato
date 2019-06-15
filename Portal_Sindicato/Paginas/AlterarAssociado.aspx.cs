@@ -22,6 +22,8 @@ public partial class Paginas_AlterarAssociado : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+
         //carrega somente a primeira vez
         if (!Page.IsPostBack)
         {
@@ -79,6 +81,15 @@ public partial class Paginas_AlterarAssociado : System.Web.UI.Page
         {
             lblMensagem.Text = "Erro ao salvar.";
         }
+       
+
+    }
+
+    protected void hlLista_Click(object sender, EventArgs e)
+    {
+        string id = Request.QueryString["Parametro"];
+        Session["ID"] = id;
+        Response.Redirect("ListarAssociados.aspx");
 
     }
 }

@@ -50,7 +50,19 @@ public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
         }
     }
 
-
+    protected void gvPendencias_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        int codigo = 0;
+        switch (e.CommandName)
+        {
+            case "AlterarStatus":
+                codigo = Convert.ToInt32(e.CommandArgument);
+                int oldId = Convert.ToInt32(Convert.ToInt32(Session["ID"]));
+                Session["ID"] = codigo;
+                Response.Redirect("AlterarStatus.aspx?Parametro="+oldId);
+                break;
+        }
+    }
 
     protected void lbPesquisar_Click(object sender, EventArgs e)
     {

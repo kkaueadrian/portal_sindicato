@@ -100,7 +100,7 @@
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
              <br />
              <br />
-            <asp:HyperLink ID="hlLista" runat="server" NavigateUrl="~/Paginas/ListarAssociados.aspx">Voltar a lista</asp:HyperLink>
+            <asp:LinkButton ID="hlLista" runat="server" OnClick="hlLista_Click">Voltar a lista</asp:LinkButton>
         </div>
     </form>
         </div>

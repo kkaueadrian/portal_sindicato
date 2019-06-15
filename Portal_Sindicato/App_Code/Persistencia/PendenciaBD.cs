@@ -69,7 +69,7 @@ public class PendenciaBD
         System.Data.IDbCommand objCommand;
         System.Data.IDataAdapter objDataAdapter;
         objConexao = Mapped.Connection();
-        objCommand = Mapped.Command("SELECT * FROM pen_pendencia  WHERE pes_codigo = ?codigo", objConexao);
+        objCommand = Mapped.Command("SELECT * FROM pen_pendencia  WHERE pes_codigo = ?codigo and pen_status = 1", objConexao);
         objCommand.Parameters.Add(Mapped.Parameter("?codigo", userid));
         objDataAdapter = Mapped.Adapter(objCommand);
 
@@ -141,6 +141,7 @@ public class PendenciaBD
             obj = new Pendencia();
             obj.Codigo = Convert.ToInt32(objDataReader["pen_codigo"]);
             obj.Tipo = Convert.ToString(objDataReader["pen_tipo"]);
+            obj.Status = Convert.ToBoolean(objDataReader["pen_status"]);
 
         }
         objDataReader.Close();
@@ -149,6 +150,21 @@ public class PendenciaBD
         objConexao.Dispose();
         objDataReader.Dispose();
         return obj;
+    }
+    public bool UpdateStatus(Pendencia pendencia)
+    {
+        System.Data.IDbConnection objConexao;
+        System.Data.IDbCommand objCommand;
+        string sql = "UPDATE pen_pendencia SET pen_status = ?status WHERE pen_codigo = ?codigo";
+        objConexao = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConexao);
+        objCommand.Parameters.Add(Mapped.Parameter("?codigo", pendencia.Codigo));
+        objCommand.Parameters.Add(Mapped.Parameter("?status", pendencia.Status));
+        objCommand.ExecuteNonQuery();
+        objConexao.Close();
+        objCommand.Dispose();
+        objConexao.Dispose();
+        return true;
     }
 
     public PendenciaBD()

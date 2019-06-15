@@ -16,6 +16,8 @@ namespace classes
         public string Tipo { get; set; }
         public string Documento { get; set; }
         public Associado Associado { get; set; }
+        public Boolean Status { get; set; }
+
 
 
 

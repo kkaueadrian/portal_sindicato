@@ -66,8 +66,9 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
         {
             case "Alterar":
                 codigo = Convert.ToInt32(e.CommandArgument);
+                int oldId = Convert.ToInt32(Convert.ToInt32(Session["ID"]));
                 Session["ID"] = codigo;
-                Response.Redirect("AlterarAssociado.aspx");
+                Response.Redirect("AlterarAssociado.aspx?Parametro="+oldId);
                 break;
 
            

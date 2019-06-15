@@ -41,12 +41,18 @@
             <asp:LinkButton ID="lbPesquisar" runat="server" OnClick="lbPesquisar_Click" >Buscar</asp:LinkButton>
             <br />
             <br />
-            <asp:GridView ID="gvPendencias" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPendencias_RowDataBound" Width="600px" AllowPaging="True" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" >
+            <asp:GridView ID="gvPendencias" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPendencias_RowDataBound" Width="600px" AllowPaging="True" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" OnRowCommand="gvPendencias_RowCommand" >
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
                     <asp:BoundField DataField="pen_tipo" HeaderText="Descrição" />
                     <asp:BoundField DataField="pes_nome" HeaderText="Associado" />
                     <asp:BoundField HeaderText="Documento" />
+                    <asp:BoundField DataField="pen_status" DataFormatString="{0:Sim/Não}" HeaderText="Status" />
+                    <asp:TemplateField>
+                <ItemTemplate>
+                <asp:LinkButton ID="lbAlterar" runat="server" CommandName="AlterarStatus" CommandArgument='<%# Bind("pen_codigo")%>'>Alterar Status</asp:LinkButton>
+                </ItemTemplate>
+                </asp:TemplateField>
                 </Columns>
 
 <PagerStyle CssClass="pgr"></PagerStyle>
