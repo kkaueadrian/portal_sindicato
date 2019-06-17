@@ -34,8 +34,6 @@ namespace persistencia
             objCommand.Parameters.Add(Mapped.Parameter("?ie", associado.Ie));
             objCommand.Parameters.Add(Mapped.Parameter("?caepf", associado.Caepf));
             objCommand.Parameters.Add(Mapped.Parameter("?tipo", associado.Tipo));
-
-
             objCommand.ExecuteNonQuery();
             objConexao.Close();
             objCommand.Dispose();

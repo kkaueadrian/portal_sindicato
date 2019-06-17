@@ -4,22 +4,20 @@ using System.Linq;
 using System.Web;
 
 namespace classes
-
-
 {
 
-    public class Login
+    public class Logon
     {
         public int Codigo { get; set; }
         public DateTime Tempo { get; set; }
         public Pessoa Pessoa { get; set; }
 
-    public Login()
-    {
-        //
-        // TODO: Adicionar lógica do construtor aqui
-        //
+        public Logon()
+        {
+            //
+            // TODO: Adicionar lógica do construtor aqui
+            //
+        }
     }
-}
 
 }
