@@ -47,7 +47,9 @@
                     <asp:BoundField DataField="pen_tipo" HeaderText="Descrição" />
                     <asp:BoundField DataField="pes_nome" HeaderText="Associado" />
                     <asp:BoundField HeaderText="Documento" />
-                    <asp:BoundField DataField="pen_status" DataFormatString="{0:Sim/Não}" HeaderText="Status" />
+                    <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                    <ItemTemplate><%# (Boolean.Parse(Eval("pen_status").ToString())) ? "Ativo" : "Desativado" %></ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField>
                 <ItemTemplate>
                 <asp:LinkButton ID="lbAlterar" runat="server" CommandName="AlterarStatus" CommandArgument='<%# Bind("pen_codigo")%>'>Alterar Status</asp:LinkButton>
