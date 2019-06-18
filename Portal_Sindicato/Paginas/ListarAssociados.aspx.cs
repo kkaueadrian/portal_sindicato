@@ -62,16 +62,22 @@ public partial class Paginas_ListarAssociados : System.Web.UI.Page
     protected void grvAssociados_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         int codigo = 0;
+        int oldId = Convert.ToInt32(Convert.ToInt32(Session["ID"]));
         switch (e.CommandName)
         {
             case "Alterar":
                 codigo = Convert.ToInt32(e.CommandArgument);
-                int oldId = Convert.ToInt32(Convert.ToInt32(Session["ID"]));
+                
                 Session["ID"] = codigo;
                 Response.Redirect("AlterarAssociado.aspx?Parametro="+oldId);
                 break;
 
-           
+            case "AlterarStatus":
+                codigo = Convert.ToInt32(e.CommandArgument);
+               
+                Session["ID"] = codigo;
+                Response.Redirect("AlterarStatusAssociado.aspx?Parametro="+oldId);
+                break;
 
             case "Deletar":
                 codigo = Convert.ToInt32(e.CommandArgument);

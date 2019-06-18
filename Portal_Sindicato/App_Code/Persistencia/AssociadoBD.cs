@@ -56,6 +56,39 @@ namespace persistencia
             objConexao.Dispose();
             return ds;
         }
+
+        public DataSet CountAdm()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("select pes_dataadm, count(distinct pes_codigo) from pes_pessoa where pes_tipo = 0 group by day(pes_dataadm), month(pes_dataadm), year(pes_dataadm)", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+
+        public DataSet CountDem()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("select pes_datadem, count(distinct pes_codigo) from pes_pessoa where pes_tipo = 0 group by day(pes_datadem), month(pes_datadem), year(pes_datadem)", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+
         public DataSet SearchAll(string termo)
         {
             DataSet ds = new DataSet();
@@ -111,7 +144,8 @@ namespace persistencia
                 obj.Endereco = Convert.ToString(objDataReader["pes_endereco"]);
                 obj.Email = Convert.ToString(objDataReader["pes_email"]);
                 obj.Contato = Convert.ToString(objDataReader["pes_contato"]);
-                
+                obj.Status = Convert.ToBoolean(objDataReader["pes_status"]);
+
                 obj.Cnpj = Convert.ToString(objDataReader["pes_cnpj"]);
                 obj.Ie = Convert.ToString(objDataReader["pes_ie"]);
                 obj.Caepf = Convert.ToString(objDataReader["pes_caepf"]);
@@ -157,9 +191,10 @@ namespace persistencia
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "UPDATE pes_pessoa SET pes_senha = ?senha";
+            string sql = "UPDATE pes_pessoa SET pes_senha = ?senha WHERE pes_codigo = ?codigo";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?codigo", associado.Codigo));
             objCommand.Parameters.Add(Mapped.Parameter("?senha", associado.Senha));
             objCommand.ExecuteNonQuery();
             objConexao.Close();
@@ -167,8 +202,25 @@ namespace persistencia
             objConexao.Dispose();
             return true;
         }
-            //delete
-            public bool Delete(int id)
+
+        public bool UpdateStatusAssociado(Associado associado)
+        {
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            string sql = "UPDATE pes_pessoa SET pes_status = ?status WHERE pes_codigo = ?codigo";
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?codigo", associado.Codigo));
+            objCommand.Parameters.Add(Mapped.Parameter("?status", associado.Status));
+            objCommand.ExecuteNonQuery();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return true;
+        }
+
+        //delete
+        public bool Delete(int id)
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;

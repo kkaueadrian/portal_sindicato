@@ -64,9 +64,17 @@
                 <asp:BoundField DataField="pes_ie" HeaderText="IE" />
                 <asp:BoundField DataField="pes_caepf" HeaderText="CAEPF" />
                 <asp:BoundField DataField="sin_razao_social" HeaderText="Sindicato" />
+                <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                    <ItemTemplate><%# (Boolean.Parse(Eval("pes_status").ToString())) ? "Ativo" : "Desativado" %></ItemTemplate>
+                    </asp:TemplateField>
                 <asp:TemplateField>
                 <ItemTemplate>
                 <asp:LinkButton ID="lbAlterar" runat="server" CommandName="Alterar" CommandArgument='<%# Bind("pes_codigo")%>'>Alterar</asp:LinkButton>
+                </ItemTemplate>
+                </asp:TemplateField>
+                  <asp:TemplateField>
+                <ItemTemplate>
+                <asp:LinkButton ID="lbAlterarStatus" runat="server" CommandName="AlterarStatus" CommandArgument='<%# Bind("pes_codigo")%>'>Alterar Status</asp:LinkButton>
                 </ItemTemplate>
                 </asp:TemplateField>
                

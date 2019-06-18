@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using classes;
+using System.Data;
 
 namespace persistencia
 {
 
     public class LogonBD
     {
-
+        //Insert
         public bool Insert(Logon logon)
         {
             System.Data.IDbConnection objConexao;
@@ -25,6 +26,23 @@ namespace persistencia
             objCommand.Dispose();
             objConexao.Dispose();
             return true;
+        }
+
+        //Select
+        public DataSet SelectCountLogin()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("select day(log_hora), month(log_hora), year(log_hora), count(distinct log_codigo) from log_login group by year(log_hora), month(log_hora), day(log_hora)", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
         }
 
         public LogonBD()
