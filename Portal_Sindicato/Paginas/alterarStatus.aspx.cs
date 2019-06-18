@@ -20,7 +20,10 @@ public partial class Paginas_alterarStatus : System.Web.UI.Page
         if (status == true)
         {
             pendencia.Status = false;
-            bd.UpdateStatus(pendencia);
+            var time = DateTime.Now;
+            string formattedTime = time.ToString("yyyy/MM/dd hh:mm:ss");
+            pendencia.DataTermino = Convert.ToDateTime(formattedTime);
+            bd.UpdateStatusAndSetTime(pendencia);
             
 
 

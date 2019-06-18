@@ -47,6 +47,17 @@
         </asp:Chart>
         <asp:ObjectDataSource ID="DEM" runat="server" SelectMethod="CountDem" TypeName="persistencia.AssociadoBD"></asp:ObjectDataSource>
         <br />
+        <asp:Chart ID="Chart4" runat="server" DataSourceID="Ter">
+            <Series>
+                <asp:Series ChartType="Point" Name="Series1" XValueMember="pen_datatermino" YValueMembers="count(distintc pen_codigo)">
+                </asp:Series>
+            </Series>
+            <ChartAreas>
+                <asp:ChartArea Name="ChartArea1">
+                </asp:ChartArea>
+            </ChartAreas>
+        </asp:Chart>
+        <asp:ObjectDataSource ID="Ter" runat="server" SelectMethod="CountTer" TypeName="PendenciaBD"></asp:ObjectDataSource>
         <br />
     </form>
 </body>

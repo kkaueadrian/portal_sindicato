@@ -123,7 +123,21 @@ public class PendenciaBD
         objConexao.Dispose();
         return ds;
     }
-
+    public DataSet CountTer()
+    {
+        DataSet ds = new DataSet();
+        System.Data.IDbConnection objConexao;
+        System.Data.IDbCommand objCommand;
+        System.Data.IDataAdapter objDataAdapter;
+        objConexao = Mapped.Connection();
+        objCommand = Mapped.Command("select pen_datatermino, count(distinct pen_codigo) from pen_pendencia   group by day(pen_datatermino), month(pen_datatermino), year(pen_datatermino)", objConexao);
+        objDataAdapter = Mapped.Adapter(objCommand);
+        objDataAdapter.Fill(ds);
+        objConexao.Close();
+        objCommand.Dispose();
+        objConexao.Dispose();
+        return ds;
+    }
 
     //select
     public Pendencia Select(int id)
@@ -160,6 +174,22 @@ public class PendenciaBD
         objCommand = Mapped.Command(sql, objConexao);
         objCommand.Parameters.Add(Mapped.Parameter("?codigo", pendencia.Codigo));
         objCommand.Parameters.Add(Mapped.Parameter("?status", pendencia.Status));
+        objCommand.ExecuteNonQuery();
+        objConexao.Close();
+        objCommand.Dispose();
+        objConexao.Dispose();
+        return true;
+    }
+    public bool UpdateStatusAndSetTime(Pendencia pendencia)
+    {
+        System.Data.IDbConnection objConexao;
+        System.Data.IDbCommand objCommand;
+        string sql = "UPDATE pen_pendencia SET pen_status = ?status, pen_datatermino = ?data WHERE pen_codigo = ?codigo";
+        objConexao = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConexao);
+        objCommand.Parameters.Add(Mapped.Parameter("?codigo", pendencia.Codigo));
+        objCommand.Parameters.Add(Mapped.Parameter("?status", pendencia.Status));
+        objCommand.Parameters.Add(Mapped.Parameter("?data", pendencia.DataTermino));
         objCommand.ExecuteNonQuery();
         objConexao.Close();
         objCommand.Dispose();
