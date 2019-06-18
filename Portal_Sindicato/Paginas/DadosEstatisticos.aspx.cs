@@ -1,4 +1,5 @@
-﻿using System;
+﻿using persistencia;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,13 +11,22 @@ public partial class Paginas_DadosEstatisticos : System.Web.UI.Page
 {
     private void Carrega()
     {
-        AssociadoBD bd = new AssociadoBD();
-        DataSet ds = bd.SelectAllWithSindicate();
+        LogonBD bd = new LogonBD();
+        DataSet ds = bd.SelectCountLogin();
        
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        Carrega();
+    }
 
+
+
+
+
+    protected void Logon_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+    {
+        Carrega();
     }
 }

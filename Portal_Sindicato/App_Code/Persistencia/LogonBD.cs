@@ -11,7 +11,7 @@ namespace persistencia
 
     public class LogonBD
     {
-
+        //Insert
         public bool Insert(Logon logon)
         {
             System.Data.IDbConnection objConexao;
@@ -27,7 +27,9 @@ namespace persistencia
             objConexao.Dispose();
             return true;
         }
-        public DataSet CountLogin()
+
+        //Select
+        public DataSet SelectCountLogin()
         {
             DataSet ds = new DataSet();
             System.Data.IDbConnection objConexao;

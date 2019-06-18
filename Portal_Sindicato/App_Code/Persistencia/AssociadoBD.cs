@@ -64,7 +64,7 @@ namespace persistencia
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("select day(pes_dataadm), month(pes_dataadm), year(pes_dataadm), count(distinct pes_codigo) from pes_pessoa where pes_tipo = 0 group by day(pes_dataadm), month(pes_dataadm), year(pes_dataadm)", objConexao);
+            objCommand = Mapped.Command("select pes_dataadm, count(distinct pes_codigo) from pes_pessoa where pes_tipo = 0 group by day(pes_dataadm), month(pes_dataadm), year(pes_dataadm)", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
@@ -80,7 +80,7 @@ namespace persistencia
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("select day(pes_datadem), month(pes_datadem), year(pes_datadem), count(distinct pes_codigo) from pes_pessoa where pes_tipo = 0 group by day(pes_datadem), month(pes_datadem), year(pes_datadem)", objConexao);
+            objCommand = Mapped.Command("select pes_datadem, count(distinct pes_codigo) from pes_pessoa where pes_tipo = 0 group by day(pes_datadem), month(pes_datadem), year(pes_datadem)", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
@@ -200,8 +200,25 @@ namespace persistencia
             objConexao.Dispose();
             return true;
         }
-            //delete
-            public bool Delete(int id)
+
+        public bool UpdateStatusAssociado(Associado associado)
+        {
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            string sql = "UPDATE pes_pessoa SET pes_status = ?status WHERE pes_codigo = ?codigo";
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?codigo", associado.Codigo));
+            objCommand.Parameters.Add(Mapped.Parameter("?status", associado.Status));
+            objCommand.ExecuteNonQuery();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return true;
+        }
+
+        //delete
+        public bool Delete(int id)
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
