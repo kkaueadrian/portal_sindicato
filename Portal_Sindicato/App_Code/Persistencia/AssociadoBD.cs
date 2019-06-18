@@ -56,6 +56,39 @@ namespace persistencia
             objConexao.Dispose();
             return ds;
         }
+
+        public DataSet CountAdm()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("select day(pes_dataadm), month(pes_dataadm), year(pes_dataadm), count(distinct pes_codigo) from pes_pessoa where pes_tipo = 0 group by day(pes_dataadm), month(pes_dataadm), year(pes_dataadm)", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+
+        public DataSet CountDem()
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("select day(pes_datadem), month(pes_datadem), year(pes_datadem), count(distinct pes_codigo) from pes_pessoa where pes_tipo = 0 group by day(pes_datadem), month(pes_datadem), year(pes_datadem)", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+
         public DataSet SearchAll(string termo)
         {
             DataSet ds = new DataSet();

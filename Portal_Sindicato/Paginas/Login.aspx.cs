@@ -59,8 +59,19 @@ public partial class Paginas_Login : System.Web.UI.Page
             return;
         }
         Session["ID"] = pessoa.Codigo;
-        switch (pessoa.Tipo)
+        PessoaBD pessoabd = new PessoaBD();
+        Pessoa pescod = pessoabd.Select(Convert.ToInt32(Session["ID"]));
+
+        Logon logon = new Logon();
+        logon.Pessoa = pescod;
+        var time = DateTime.Now;
+        string formattedTime = time.ToString("yyyy/MM/dd hh:mm:ss");
+        logon.Tempo = Convert.ToDateTime(formattedTime);
+        LogonBD bl= new LogonBD();
+        bl.Insert(logon);
+            switch (pessoa.Tipo)
         {
+
             case 0:
                 Response.Redirect("HomeAssociado.aspx");
                 break;
