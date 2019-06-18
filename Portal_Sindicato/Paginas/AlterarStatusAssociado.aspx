@@ -11,7 +11,6 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Button ID="btnConfirmar" runat="server"  Text="Confirmar" OnClick="btnConfirmar_Click" />
     </form>
 </body>
 </html>

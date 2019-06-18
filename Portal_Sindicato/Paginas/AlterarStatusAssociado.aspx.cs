@@ -15,16 +15,6 @@ public partial class Paginas_AlterarStatusAssociado : System.Web.UI.Page
 
 
 
-
-
-
-    }
-
-
-
-    protected void btnConfirmar_Click(object sender, EventArgs e)
-    {
-
         AssociadoBD bd = new AssociadoBD();
         Associado associado = bd.Select(Convert.ToInt32(Session["ID"]));
         Boolean status = associado.Status;
@@ -47,5 +37,12 @@ public partial class Paginas_AlterarStatusAssociado : System.Web.UI.Page
         string id = Request.QueryString["Parametro"];
         Session["ID"] = id;
         Response.Redirect("ListarAssociados.aspx");
+
+
+
     }
+
+
+
+    
 }

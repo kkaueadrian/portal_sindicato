@@ -144,7 +144,8 @@ namespace persistencia
                 obj.Endereco = Convert.ToString(objDataReader["pes_endereco"]);
                 obj.Email = Convert.ToString(objDataReader["pes_email"]);
                 obj.Contato = Convert.ToString(objDataReader["pes_contato"]);
-                
+                obj.Status = Convert.ToBoolean(objDataReader["pes_status"]);
+
                 obj.Cnpj = Convert.ToString(objDataReader["pes_cnpj"]);
                 obj.Ie = Convert.ToString(objDataReader["pes_ie"]);
                 obj.Caepf = Convert.ToString(objDataReader["pes_caepf"]);
@@ -190,9 +191,10 @@ namespace persistencia
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "UPDATE pes_pessoa SET pes_senha = ?senha";
+            string sql = "UPDATE pes_pessoa SET pes_senha = ?senha WHERE pes_codigo = ?codigo";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?codigo", associado.Codigo));
             objCommand.Parameters.Add(Mapped.Parameter("?senha", associado.Senha));
             objCommand.ExecuteNonQuery();
             objConexao.Close();
