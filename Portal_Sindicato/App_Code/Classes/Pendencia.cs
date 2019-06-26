@@ -18,6 +18,7 @@ namespace classes
         public Associado Associado { get; set; }
         public Boolean Status { get; set; }
         public DateTime DataTermino { get; set; }
+        public int Quantidade { get; set; }
 
 
 

@@ -1,4 +1,5 @@
-﻿using persistencia;
+﻿using classes;
+using persistencia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,6 +14,7 @@ public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
     {
         PendenciaBD bd = new PendenciaBD();
         DataSet ds = bd.SelectAllWithAssociate();
+        
         gvPendencias.DataSource = ds.Tables[0].DefaultView;
         gvPendencias.DataBind();
         //verifica a quantidade de associados no dataset
@@ -38,15 +40,45 @@ public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
             Carrega();
             
         }
-        protected DataRow GetLastRow()
-        {
-            PendenciaAtivaBD ba = new PendenciaAtivaBD();
-            DataSet da = ba.SelectAll();
 
-            DataRow dr = (DataRow)da.Tables[0].Rows[da.Tables[0].Rows.Count - 1];
-            return dr;
+        PendenciaBD bd = new PendenciaBD();
+        int qtd = bd.CountAtv();
+
+        PendenciaAtivaBD ba = new PendenciaAtivaBD();
+        DataSet da = ba.SelectAll();
+
+        int cod = Convert.ToInt32(da.Tables[0].Rows.Count);
+
+        PendenciaAtiva pendenciaAtiva = ba.Select(cod);
+        
+        string formattedTime = Convert.ToDateTime(pendenciaAtiva.Data).ToString("yyyy/MM/dd");
+
+        var time2 = DateTime.Now;
+        string formattedTime2 = time2.ToString("yyyy/MM/dd");
+        string formattedTime3 = time2.ToString("yyyy/MM/dd hh:mm:ss");
+
+
+
+        if (formattedTime == formattedTime2)
+        {
+
+            pendenciaAtiva.Quantidade = qtd;
+            ba.Update(pendenciaAtiva);
+
         }
-        DateTime data = dr.Data;
+        else {
+            pendenciaAtiva.Quantidade = qtd;
+            pendenciaAtiva.Data = Convert.ToDateTime(formattedTime3);
+            ba.Insert(pendenciaAtiva);
+
+        }
+
+
+
+
+
+
+
 
 
 

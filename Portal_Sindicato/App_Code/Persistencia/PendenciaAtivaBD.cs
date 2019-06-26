@@ -75,12 +75,12 @@ namespace persistencia
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "UPDATE atv_pendencia SET atv_quantidade=?quantidade, atv_data=?data WHERE atv_codigo =?codigo";
+            string sql = "UPDATE atv_pendencia SET atv_quantidade=?quantidade WHERE atv_codigo =?codigo";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?codigo", pendenciaAtiva.Codigo));
             objCommand.Parameters.Add(Mapped.Parameter("?quantidade", pendenciaAtiva.Quantidade));
-            objCommand.Parameters.Add(Mapped.Parameter("?data", pendenciaAtiva.Data));
+           
             
             objCommand.ExecuteNonQuery();
             objConexao.Close();
