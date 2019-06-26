@@ -97,7 +97,9 @@ public partial class Paginas_HomePublicacoes : System.Web.UI.Page
 
 
         IpBD bd = new IpBD();
-        if (!bd.Select(endereco, formattedTime)) { 
+        Boolean ips = bd.Select(endereco, formattedTime);
+        
+        if (ips == true) { 
             bd.Insert(ip);
 
         }

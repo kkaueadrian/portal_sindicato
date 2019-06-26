@@ -61,16 +61,24 @@ public class IpBD
                 obj.Data = Convert.ToDateTime(objDataReader["ip_data"]);
                 obj.Endereco = Convert.ToString(objDataReader["ip_endereco"]);
 
+
             }
+
             objDataReader.Close();
             objConexao.Close();
             objCommand.Dispose();
             objConexao.Dispose();
             objDataReader.Dispose();
-            if (obj.Endereco != null) { 
-            return true;
+            if (obj == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
-            }else { return false; }
+            
 
 
         }
