@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -57,6 +59,19 @@ public partial class Paginas_HomePublicacoes : System.Web.UI.Page
         }
     }
 
+    public static IPAddress GetIPAddress(string hostName)
+    {
+        Ping ping = new Ping();
+        var replay = ping.Send(hostName);
+
+        if (replay.Status == IPStatus.Success)
+        {
+            return replay.Address;
+        }
+        return null;
+    }
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
       
@@ -70,7 +85,24 @@ public partial class Paginas_HomePublicacoes : System.Web.UI.Page
                 CarregaGv();
             
         }
+
+      
+            Ip ip = new Ip();
+            string endereco = Convert.ToString(GetIPAddress(Dns.GetHostName()));
+            ip.Endereco = endereco;
+            var time = DateTime.Now;
+            string formattedTime = time.ToString("yyyy/MM/dd");
+            ip.Data = Convert.ToDateTime(formattedTime);
+
+
+
+        IpBD bd = new IpBD();
+        if (!bd.Select(endereco, formattedTime)) { 
+            bd.Insert(ip);
+
+        }
     }
+
 
 
     protected void gvPublicacao_RowDataBound(object sender, GridViewRowEventArgs e)
