@@ -46,7 +46,7 @@
                 <asp:BoundField DataField="pub_endereco" HeaderText="Endereço" />
                 <asp:BoundField DataField="pub_descricao" HeaderText="Descrição" />
                 <asp:TemplateField HeaderText="Status" SortExpression="Status">
-                    <ItemTemplate><%# (Boolean.Parse(Eval("pen_status").ToString())) ? "Ativa" : "Desativada" %></ItemTemplate>
+                    <ItemTemplate><%# (Boolean.Parse(Eval("pub_status").ToString())) ? "Ativa" : "Desativada" %></ItemTemplate>
                     </asp:TemplateField>
                 <asp:BoundField DataField="pub_tipo" HeaderText="Tipo" />
                 <asp:BoundField DataField="sin_razao_social" HeaderText="Sindicato" />
