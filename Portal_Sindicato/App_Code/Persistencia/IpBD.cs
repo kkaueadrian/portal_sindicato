@@ -67,7 +67,12 @@ public class IpBD
             objCommand.Dispose();
             objConexao.Dispose();
             objDataReader.Dispose();
+            if (obj.Endereco != null) { 
             return true;
+
+            }else { return false; }
+
+
         }
 
         public IpBD()
