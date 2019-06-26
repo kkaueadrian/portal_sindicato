@@ -138,7 +138,21 @@ public class PendenciaBD
         objConexao.Dispose();
         return ds;
     }
-
+    public DataSet CountAtv()
+    {
+        DataSet ds = new DataSet();
+        System.Data.IDbConnection objConexao;
+        System.Data.IDbCommand objCommand;
+        System.Data.IDataAdapter objDataAdapter;
+        objConexao = Mapped.Connection();
+        objCommand = Mapped.Command("select  count(distinct pen_codigo) from pen_pendencia", objConexao);
+        objDataAdapter = Mapped.Adapter(objCommand);
+        objDataAdapter.Fill(ds);
+        objConexao.Close();
+        objCommand.Dispose();
+        objConexao.Dispose();
+        return ds;
+    }
     //select
     public Pendencia Select(int id)
     {

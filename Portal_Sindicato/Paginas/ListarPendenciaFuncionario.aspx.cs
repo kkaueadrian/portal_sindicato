@@ -1,4 +1,5 @@
-﻿using System;
+﻿using persistencia;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -29,13 +30,26 @@ public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
             lblMensagem.Text = "Nenhuma Pendencia cadastrado";
         }
     }
-
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
             Carrega();
+            
         }
+        protected DataRow GetLastRow()
+        {
+            PendenciaAtivaBD ba = new PendenciaAtivaBD();
+            DataSet da = ba.SelectAll();
+
+            DataRow dr = (DataRow)da.Tables[0].Rows[da.Tables[0].Rows.Count - 1];
+            return dr;
+        }
+        DateTime data = dr.Data;
+
+
+
     }
 
     protected void gvPendencias_RowDataBound(object sender, GridViewRowEventArgs e)
