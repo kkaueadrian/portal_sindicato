@@ -70,6 +70,17 @@
             </ChartAreas>
         </asp:Chart>
         <asp:ObjectDataSource ID="Aberto" runat="server" SelectMethod="SelectAll" TypeName="persistencia.PendenciaAtivaBD"></asp:ObjectDataSource>
+        <asp:Chart ID="Chart6" runat="server" DataSourceID="IpAcesso">
+            <Series>
+                <asp:Series ChartType="Point" Name="Series1" XValueMember="ip_data" YValueMembers="count(distinct ip_codigo)">
+                </asp:Series>
+            </Series>
+            <ChartAreas>
+                <asp:ChartArea Name="ChartArea1">
+                </asp:ChartArea>
+            </ChartAreas>
+        </asp:Chart>
+        <asp:ObjectDataSource ID="IpAcesso" runat="server" SelectMethod="SelectAll" TypeName="persistencia.IpBD"></asp:ObjectDataSource>
         <br />
     </form>
 </body>

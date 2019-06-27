@@ -34,7 +34,7 @@ public class IpBD
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM ip_acesso", objConexao);
+            objCommand = Mapped.Command("select count(distinct ip_codigo), ip_data from ip_acesso group by year(ip_data), month(ip_data), day(ip_data)", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
