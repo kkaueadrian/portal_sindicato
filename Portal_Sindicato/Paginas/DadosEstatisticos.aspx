@@ -21,6 +21,7 @@
                 </asp:ChartArea>
             </ChartAreas>
         </asp:Chart>
+
         <asp:ObjectDataSource ID="Logon" runat="server" OnSelecting="Logon_Selecting" SelectMethod="SelectCountLogin" TypeName="persistencia.LogonBD"></asp:ObjectDataSource>
         <br />
         <br />
@@ -34,6 +35,8 @@
                 </asp:ChartArea>
             </ChartAreas>
         </asp:Chart>
+
+
         <asp:ObjectDataSource ID="ADM" runat="server" SelectMethod="CountAdm" TypeName="persistencia.AssociadoBD"></asp:ObjectDataSource>
         <asp:Chart ID="Chart3" runat="server" DataSourceID="DEM" Width="940px">
             <Series>
@@ -45,6 +48,8 @@
                 </asp:ChartArea>
             </ChartAreas>
         </asp:Chart>
+
+
         <asp:ObjectDataSource ID="DEM" runat="server" SelectMethod="CountDem" TypeName="persistencia.AssociadoBD"></asp:ObjectDataSource>
         <br />
         <asp:Chart ID="Chart4" runat="server" DataSourceID="Ter">
@@ -57,6 +62,8 @@
                 </asp:ChartArea>
             </ChartAreas>
         </asp:Chart>
+
+
         <asp:ObjectDataSource ID="Ter" runat="server" SelectMethod="CountTer" TypeName="PendenciaBD"></asp:ObjectDataSource>
         <br />
         <asp:Chart ID="Chart5" runat="server" DataSourceID="Aberto" Width="949px">
@@ -69,6 +76,8 @@
                 </asp:ChartArea>
             </ChartAreas>
         </asp:Chart>
+
+
         <asp:ObjectDataSource ID="Aberto" runat="server" SelectMethod="SelectAll" TypeName="persistencia.PendenciaAtivaBD"></asp:ObjectDataSource>
         <asp:Chart ID="Chart6" runat="server" DataSourceID="IpAcesso">
             <Series>
