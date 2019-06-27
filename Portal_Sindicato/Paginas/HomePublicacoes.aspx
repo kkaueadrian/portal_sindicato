@@ -51,23 +51,23 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('http://localhost:54428/Content/HomePub/Imagem/thumb-1920-62836.jpg')">
+        <div class="carousel-item active" style="  background-image: url(http://localhost:54428/Content/HomePub/Imagem/c5d98a49-18ab-4a99-8cd7-12dcefe9012c.jpg)">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Vaca 1</h3>
+            <h3>Faça sua visita ao Sindicato Rural de Lorena</h3>
             <p>Discrição</p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://localhost:54428/Content/HomePub/Imagem/thumb-1920-366544.jpg')">
+        <div class="carousel-item" style=" background-image: url(http://localhost:54428/Content/HomePub/Imagem/17c50e60-7eb0-45f8-84f2-4b961f58a64f.jpg)">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Vaca 2</h3>
+            <h3 style="color:black;">Da União Nasce a Força! </h3>
             <p>Discrição</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://localhost:54428/Content/HomePub/Imagem/pexels-photo-689164.jpeg')">
+        <div class="carousel-item" style="  background-image: url(http://localhost:54428/Content/HomePub/Imagem/ato-declaratório-executivo.jpg)">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Café</h3>
+            <h3>Acesso para o prudutor rural </h3>
             <p>Discrição</p>
           </div>
         </div>

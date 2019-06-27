@@ -50,7 +50,7 @@
 
 
             <br />
-        <asp:GridView ID="grvAssociados" runat="server" AutoGenerateColumns="False"  OnRowCommand="grvAssociados_RowCommand" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr">
+        <asp:GridView ID="grvAssociados" runat="server" AutoGenerateColumns="False"  OnRowCommand="grvAssociados_RowCommand" Width="1580px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Height="16px">
             <Columns>
                 <asp:BoundField DataField="pes_codigo" HeaderText="Codigo" />
                 <asp:BoundField DataField="pes_nome" HeaderText="Nome" />

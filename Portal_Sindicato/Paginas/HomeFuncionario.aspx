@@ -75,6 +75,11 @@
            <div id="link6" class="col-md-2">
             <asp:HyperLink class="buttonformat" ID="HyperLink1" runat="server" NavigateUrl="~/Paginas/CadastrarSindicato.aspx">Cadastrar Sindicatos</asp:HyperLink>
                 <asp:Label runat="server" Text=" "/>
+               <br />
+               <br />
+               <br />
+               <br />
+               <asp:HyperLink class="buttonformat" ID="hlDados"  NavigateUrl="~/Paginas/DadosEstatisticos.aspx" runat="server">Dados Estatistícos</asp:HyperLink>
              </div>
            <div id="link7" class="row" >
           <asp:LinkButton  ID="lbSair" runat="server" OnClick="lbSair_Click">Sair</asp:LinkButton>

@@ -29,4 +29,8 @@ public partial class Paginas_DadosEstatisticos : System.Web.UI.Page
     {
         Carrega();
     }
+
+
+
+    
 }

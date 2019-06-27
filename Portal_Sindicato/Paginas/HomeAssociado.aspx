@@ -47,8 +47,8 @@
                 <br />
                 <br />
                 <br />
-               
-                <asp:HyperLink ID="hlAlterarSenha" NavigateUrl="~/Paginas/AlterarSenhaAssociado.aspx" runat="server">Alterar Senha</asp:HyperLink>
+               <br />
+                <asp:HyperLink class="buttonformat" ID="hlAlterarSenha" NavigateUrl="~/Paginas/AlterarSenhaAssociado.aspx" runat="server">Alterar Senha</asp:HyperLink>
                
                 </div>
              <div id="link2">

@@ -38,7 +38,7 @@
          <br />
         <br />
         
-        <asp:GridView ID="gvSindicato" runat="server" AutoGenerateColumns="False" OnRowCommand="gvSindicato_RowCommand1" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" >
+        <asp:GridView ID="gvSindicato" runat="server" AutoGenerateColumns="False" OnRowCommand="gvSindicato_RowCommand1" Width="1574px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Height="16px" >
             
 
              <Columns>

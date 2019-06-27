@@ -40,7 +40,7 @@
         <asp:HyperLink ID="hlPublicacao" NavigateUrl="~/Paginas/CadastrarPublicacao.aspx" runat="server">Nova Publicação</asp:HyperLink>
             <br />
         <br />
-        <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr">
+        <asp:GridView ID="gvPublicacao" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPublicacao_RowDataBound" Width="1577px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Height="16px">
             <Columns>
                 <asp:BoundField HeaderText="Imagem" />
                 <asp:BoundField DataField="pub_endereco" HeaderText="Endereço" />

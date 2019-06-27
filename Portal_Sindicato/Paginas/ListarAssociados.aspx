@@ -18,7 +18,7 @@
             margin-left: 150px;
             margin-right: 150px;
         }
-        #hlCadastrar,#hlVoltar{
+        #hlCadastrar,#hlVoltar,#lbBuscar {
             
             background-color:cornflowerblue;
             text-decoration: none;
@@ -26,6 +26,8 @@
             padding: 1em 1.5em;
             text-transform: uppercase;
         }
+
+       
         body {
             background-image: url(http://localhost:54428/Content/HomePub/Imagem/photo-1486312338219-ce68d2c6f44d.jpg)
         }
@@ -41,16 +43,29 @@
        
         <asp:HyperLink ID="hlCadastrar" runat="server" NavigateUrl="~/Paginas/CadastrarAssociado.aspx">Cadastrar novo associado</asp:HyperLink>
             <br />
-
-
-
-            <asp:TextBox ID="txtTermo" runat="server"></asp:TextBox>
-            <asp:LinkButton ID="lbBuscar" runat="server" OnClick="lbBuscar_Click" >Buscar</asp:LinkButton>
-
-
-
             <br />
-        <asp:GridView ID="grvAssociados" runat="server" AutoGenerateColumns="False"  OnRowCommand="grvAssociados_RowCommand" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr">
+            <br />
+            <br />
+            <br />
+
+            <div style="float:left;">
+            <asp:TextBox ID="txtTermo" runat="server" style="background-color:white; border-color:black; margin-top: 0px;"  Height="45px" Width="340px" ></asp:TextBox>
+            </div>
+           
+            <div style="float:left; margin-left:0px; padding-top:15px; height: 32px;">
+            <asp:LinkButton ID="lbBuscar" runat="server" OnClick="lbBuscar_Click" >Buscar</asp:LinkButton>
+            </div>
+            
+
+          
+            <br />
+            <br />
+            <br />
+            <br />
+            
+           
+        <asp:GridView ID="grvAssociados" runat="server" AutoGenerateColumns="False"  OnRowCommand="grvAssociados_RowCommand" Width="1594px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Height="16px">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
             <Columns>
                 <asp:BoundField DataField="pes_codigo" HeaderText="Codigo" />
                 <asp:BoundField DataField="pes_nome" HeaderText="Nome" />
@@ -84,8 +99,10 @@
                 </ItemTemplate>
                 </asp:TemplateField>
                 </Columns>
-                </asp:GridView>
 
+<PagerStyle CssClass="pgr"></PagerStyle>
+                </asp:GridView>
+          
             <br />
 
         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>

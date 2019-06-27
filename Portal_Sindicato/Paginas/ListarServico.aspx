@@ -38,7 +38,7 @@
             <asp:HyperLink ID="hlServico" NavigateUrl="~/Paginas/CadastrarServico.aspx" runat="server">Novo serviço</asp:HyperLink>
             <br />
             <br />
-            <asp:GridView ID="gvServico" runat="server" AutoGenerateColumns="False" OnRowCommand="gvServico_RowCommand1"  Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr">
+            <asp:GridView ID="gvServico" runat="server" AutoGenerateColumns="False" OnRowCommand="gvServico_RowCommand1"  Width="1572px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Height="16px">
                 <Columns>
                     <asp:BoundField DataField="ser_codigo" HeaderText="Codigo" />
                     <asp:BoundField DataField="ser_descricao" HeaderText="Descrição" />

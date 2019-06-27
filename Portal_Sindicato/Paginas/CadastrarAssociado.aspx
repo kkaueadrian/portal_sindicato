@@ -16,7 +16,7 @@
         #hlLista{
             
             background-color:cornflowerblue;
-            text-decoration: none;
+            
             color: snow;
             padding: 1em 1.5em;
             text-transform: uppercase;
@@ -35,62 +35,62 @@
         
         <br />
         <br />
-        <asp:Label ID="nome" runat="server" Text="Nome:"></asp:Label>
+        <asp:Label class="form-style-8" ID="nome" runat="server" Text="Nome:"></asp:Label>
         <br />
         <asp:TextBox ID="txtNome" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="senha" runat="server" Text="Senha:"></asp:Label>
+        <asp:Label class="form-style-8" ID="senha" runat="server" Text="Senha:"></asp:Label>
         <br />
         <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="cpf" runat="server" Text="CPF:"></asp:Label>
+        <asp:Label class="form-style-8" ID="cpf" runat="server" Text="CPF:"></asp:Label>
         <br />
         <asp:TextBox ID="txtCpf" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="nascimento" runat="server" Text="Nascimento:"></asp:Label>
+        <asp:Label class="form-style-8" ID="nascimento" runat="server" Text="Nascimento:"></asp:Label>
         <br />
         <asp:TextBox ID="txtNascimento" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="dataadm" runat="server" Text="Data de Admissão"></asp:Label>
+        <asp:Label class="form-style-8" ID="dataadm" runat="server" Text="Data de Admissão"></asp:Label>
         <br />
         <asp:TextBox ID="txtDataadm" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="endereco" runat="server" Text="Endereço:"></asp:Label>
+        <asp:Label class="form-style-8" ID="endereco" runat="server" Text="Endereço:"></asp:Label>
         <br />
         <asp:TextBox ID="txtEndereco" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="email" runat="server" Text="Email:"></asp:Label>
+        <asp:Label  class="form-style-8" ID="email" runat="server" Text="Email:"></asp:Label>
         <br />
         <asp:TextBox ID="txtEmail" runat="server" OnTextChanged="TextBox7_TextChanged"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="contato" runat="server" Text="Celular:"></asp:Label>
+        <asp:Label class="form-style-8" ID="contato" runat="server" Text="Celular:"></asp:Label>
         <br />
-        <asp:TextBox ID="txtContato" runat="server"></asp:TextBox>
+        <asp:TextBox  ID="txtContato" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="cnpj" runat="server" Text="CNPJ:"></asp:Label>
+        <asp:Label class="form-style-8" ID="cnpj" runat="server" Text="CNPJ:"></asp:Label>
         <br />
         <asp:TextBox ID="txtCnpj" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="ie" runat="server" Text="Inscrição Estadual:"></asp:Label>
+        <asp:Label class="form-style-8" ID="ie" runat="server" Text="Inscrição Estadual:"></asp:Label>
         <br />
         <asp:TextBox ID="txtIe" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="caepf" runat="server" Text="CAEPF:"></asp:Label>
+        <asp:Label class="form-style-8" ID="caepf" runat="server" Text="CAEPF:"></asp:Label>
         <br />
         <asp:TextBox ID="txtCaepf" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="lblSindicato" runat="server" Text="Sindicato"></asp:Label>
+        <asp:Label class="form-style-8" ID="lblSindicato" runat="server" Text="Sindicato"></asp:Label>
         <br />
         <asp:DropDownList ID="ddlSindicato" runat="server">
         </asp:DropDownList>

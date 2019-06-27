@@ -39,7 +39,7 @@
             <br />
             <br />
         </div>
-        <asp:GridView ID="gvFuncionario" runat="server" AutoGenerateColumns="False" OnRowCommand="gvFuncionario_RowCommand1" Width="600px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" >
+        <asp:GridView ID="gvFuncionario" runat="server" AutoGenerateColumns="False" OnRowCommand="gvFuncionario_RowCommand1" Width="1581px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Height="163px" >
             <Columns>
                 <asp:BoundField DataField="pes_codigo" HeaderText="Codigo" />
                 <asp:BoundField DataField="pes_permissao_administrador" HeaderText="Pemissão de Administrador" />
