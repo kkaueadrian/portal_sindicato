@@ -207,11 +207,12 @@ namespace persistencia
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "UPDATE pes_pessoa SET pes_status = ?status WHERE pes_codigo = ?codigo";
+            string sql = "UPDATE pes_pessoa SET pes_status = ?status, pes_datadem = ?data WHERE pes_codigo = ?codigo";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?codigo", associado.Codigo));
             objCommand.Parameters.Add(Mapped.Parameter("?status", associado.Status));
+            objCommand.Parameters.Add(Mapped.Parameter("?data", associado.Datadem));
             objCommand.ExecuteNonQuery();
             objConexao.Close();
             objCommand.Dispose();
