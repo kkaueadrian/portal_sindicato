@@ -18,7 +18,7 @@
             margin-left: 150px;
             margin-right: 150px;
         }
-        #hlCadastrar,#hlVoltar{
+        #hlCadastrar,#hlVoltar,#lbBuscar{
             
             background-color:cornflowerblue;
             text-decoration: none;
@@ -41,12 +41,19 @@
        
         <asp:HyperLink ID="hlCadastrar" runat="server" NavigateUrl="~/Paginas/CadastrarAssociado.aspx">Cadastrar novo associado</asp:HyperLink>
             <br />
+            <br />
+            <br />
+            <br />
+            <br />
 
 
+            <div style="float:left;">
+            <asp:TextBox ID="txtTermo" runat="server" style="background-color:white; border-color:black; margin-top: 0px;"  Height="45px" Width="340px"></asp:TextBox>
+                </div>
 
-            <asp:TextBox ID="txtTermo" runat="server"></asp:TextBox>
+            <div style="float:left; margin-left:0px; padding-top:15px; height: 32px;">
             <asp:LinkButton ID="lbBuscar" runat="server"  OnClick="lbBuscar_Click">Buscar</asp:LinkButton>
-
+                </div>
 
 
             <br />

@@ -46,15 +46,15 @@ namespace persistencia
             return ds;
         }
         //select
-        public PendenciaAtiva Select(int id)
+        public PendenciaAtiva Select(string data)
         {
             PendenciaAtiva obj = null;
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
             System.Data.IDataReader objDataReader;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM atv_pendencia WHERE atv_codigo = ?codigo", objConexao);
-            objCommand.Parameters.Add(Mapped.Parameter("?codigo", id));
+            objCommand = Mapped.Command("SELECT * FROM atv_pendencia WHERE atv_data = ?data", objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?data", data));
             objDataReader = objCommand.ExecuteReader();
             while (objDataReader.Read())
             {
@@ -71,6 +71,48 @@ namespace persistencia
             objDataReader.Dispose();
             return obj;
         }
+
+        public Boolean SelectLast(string data)
+        {
+            PendenciaAtiva obj = null;
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataReader objDataReader;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM atv_pendencia WHERE atv_data = ?data", objConexao);
+           
+            objCommand.Parameters.Add(Mapped.Parameter("?data", data));
+            objDataReader = objCommand.ExecuteReader();
+            while (objDataReader.Read())
+            {
+                obj = new PendenciaAtiva();
+                obj.Codigo = Convert.ToInt32(objDataReader["atv_codigo"]);
+                obj.Data = Convert.ToDateTime(objDataReader["atv_data"]);
+                obj.Quantidade = Convert.ToInt32(objDataReader["atv_quantidade"]);
+
+
+
+            }
+
+            objDataReader.Close();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            objDataReader.Dispose();
+            if (obj == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+
+
+        }
+
         public bool Update(PendenciaAtiva pendenciaAtiva)
         {
             System.Data.IDbConnection objConexao;

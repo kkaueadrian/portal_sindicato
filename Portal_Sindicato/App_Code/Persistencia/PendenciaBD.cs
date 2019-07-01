@@ -145,7 +145,7 @@ public class PendenciaBD
         System.Data.IDbCommand objCommand;
         System.Data.IDataReader objDataReader;
         objConexao = Mapped.Connection();
-        objCommand = Mapped.Command("select  count(distinct pen_codigo) from pen_pendencia", objConexao);
+        objCommand = Mapped.Command("select  count(distinct pen_codigo) from pen_pendencia where pen_status = 1", objConexao);
         objDataReader = objCommand.ExecuteReader();
         while (objDataReader.Read())
         {
@@ -182,6 +182,9 @@ public class PendenciaBD
         objDataReader.Dispose();
         return obj;
     }
+
+
+
     public bool UpdateStatus(Pendencia pendencia)
     {
         System.Data.IDbConnection objConexao;

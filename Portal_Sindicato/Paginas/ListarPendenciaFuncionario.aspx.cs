@@ -45,30 +45,32 @@ public partial class Paginas_ListarPendenciaFuncionario : System.Web.UI.Page
         int qtd = bd.CountAtv();
 
         PendenciaAtivaBD ba = new PendenciaAtivaBD();
-        DataSet da = ba.SelectAll();
-
-        int cod = Convert.ToInt32(da.Tables[0].Rows.Count);
-
-        PendenciaAtiva pendenciaAtiva = ba.Select(cod);
         
-        string formattedTime = Convert.ToDateTime(pendenciaAtiva.Data).ToString("yyyy/MM/dd");
+
+       
+        
+        
 
         var time2 = DateTime.Now;
-        string formattedTime2 = time2.ToString("yyyy/MM/dd");
-        string formattedTime3 = time2.ToString("yyyy/MM/dd hh:mm:ss");
+        string formattedTime = time2.ToString("yyyy/MM/dd");
+       
+
+        Boolean var = ba.SelectLast(formattedTime);
+        
 
 
 
-        if (formattedTime == formattedTime2)
+        if (var == false)
         {
-
+            PendenciaAtiva pendenciaAtiva = ba.Select(formattedTime);
             pendenciaAtiva.Quantidade = qtd;
             ba.Update(pendenciaAtiva);
 
         }
         else {
+            PendenciaAtiva pendenciaAtiva = new PendenciaAtiva();
             pendenciaAtiva.Quantidade = qtd;
-            pendenciaAtiva.Data = Convert.ToDateTime(formattedTime3);
+            pendenciaAtiva.Data = Convert.ToDateTime(formattedTime);
             ba.Insert(pendenciaAtiva);
 
         }

@@ -14,7 +14,7 @@
             margin-left: 150px;
             margin-right: 150px;
         }
-        #hlCadastro,#hlVoltar{
+        #hlCadastro,#hlVoltar,#lbPesquisar{
             
             background-color:cornflowerblue;
             text-decoration: none;
@@ -37,8 +37,20 @@
         <div>
             
             <asp:HyperLink ID="hlCadastro" NavigateUrl="~/Paginas/CadastrarPendencia.aspx" runat="server">Nova Pendência</asp:HyperLink>
-            <asp:TextBox ID="txtPesquisar" runat="server"></asp:TextBox>
+             <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div style="float:left;">
+            <asp:TextBox ID="txtPesquisar" runat="server" style="background-color:white; border-color:black; margin-top: 0px;"  Height="45px" Width="340px"></asp:TextBox>
+                </div>
+
+             <div style="float:left; margin-left:0px; padding-top:15px; height: 32px;">
             <asp:LinkButton ID="lbPesquisar" runat="server" OnClick="lbPesquisar_Click" >Buscar</asp:LinkButton>
+                 </div>
+
             <br />
             <br />
             <asp:GridView ID="gvPendencias" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvPendencias_RowDataBound" Width="600px" AllowPaging="True" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" >
