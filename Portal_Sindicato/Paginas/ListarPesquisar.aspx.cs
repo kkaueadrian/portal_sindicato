@@ -26,6 +26,7 @@ public partial class Paginas_ListarPesquisar : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string termo = Request.QueryString["Parametro"];
+        string termofull = '%'+termo+'%';
             Carrega();
         int codigo = Convert.ToInt32(Session["ID"]);
         PessoaBD bf = new PessoaBD();
@@ -36,7 +37,7 @@ public partial class Paginas_ListarPesquisar : System.Web.UI.Page
             Response.Redirect("AcessoNegado.aspx");
         }
         AssociadoBD bd = new AssociadoBD();
-        DataSet ds = bd.SearchAll(termo);
+        DataSet ds = bd.SearchAll(termofull);
         grvAssociados.DataSource = ds.Tables[0].DefaultView;
         grvAssociados.DataBind();
         int quantidade = ds.Tables[0].Rows.Count;

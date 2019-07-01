@@ -41,7 +41,7 @@ public partial class Paginas_CadastrarPendencia : System.Web.UI.Page
             {
                 string arquivo = fuDocumento.FileName;
                 //caminho onde a foto será salva
-                fuDocumento.SaveAs(@"C:\Users\Pietro\source\repos\kkaueadrian\Portal_Sindicato\Portal_Sindicato\Upload\" + arquivo);
+                fuDocumento.SaveAs(@"C:\Users\pl_ta\source\repos\kkaueadrian\Portal_Sindicato\Portal_Sindicato\Upload\" + arquivo);
 
                 AssociadoBD associadobd = new AssociadoBD();
                 Associado associado = associadobd.Select(Convert.ToInt32(ddlAssociado.SelectedItem.Value));

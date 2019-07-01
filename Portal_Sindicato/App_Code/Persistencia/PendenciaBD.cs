@@ -113,7 +113,7 @@ public class PendenciaBD
         System.Data.IDbCommand objCommand;
         System.Data.IDataAdapter objDataAdapter;
         objConexao = Mapped.Connection();
-        objCommand = Mapped.Command("SELECT * FROM pen_pendencia pe inner join pes_pessoa pa on pe.pes_codigo = pa.pes_codigo where pes_nome = ?termo order by pen_codigo ", objConexao);
+        objCommand = Mapped.Command("SELECT * FROM pen_pendencia pe inner join pes_pessoa pa on pe.pes_codigo = pa.pes_codigo where pes_nome like ?termo order by pen_codigo ", objConexao);
         objDataAdapter = Mapped.Adapter(objCommand);
         objCommand.Parameters.Add(Mapped.Parameter("?termo", termo));
 

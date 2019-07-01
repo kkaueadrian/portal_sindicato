@@ -18,8 +18,9 @@ public partial class Paginas_PesquisarPendencias : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             string termo = Request.QueryString["Parametro"];
+            string termofull = '%'+termo+'%';
             PendenciaBD bd = new PendenciaBD();
-            DataSet ds = bd.SearchAllWithAssociate(termo);
+            DataSet ds = bd.SearchAllWithAssociate(termofull);
             gvPendencias.DataSource = ds.Tables[0].DefaultView;
             gvPendencias.DataBind();
             //verifica a quantidade de associados no dataset
@@ -56,6 +57,6 @@ public partial class Paginas_PesquisarPendencias : System.Web.UI.Page
     protected void lbPesquisar_Click(object sender, EventArgs e)
     {
         string termo = txtPesquisar.Text;
-        Response.Redirect("PesquisarPendencias.aspx?Parametro=" + termo);
+        Response.Redirect("PesquisarPendencias.aspx?Parametro="+termo);
     }
 }
