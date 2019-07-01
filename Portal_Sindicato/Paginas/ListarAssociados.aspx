@@ -64,7 +64,7 @@
             <br />
             
            
-        <asp:GridView ID="grvAssociados" runat="server" AutoGenerateColumns="False"  OnRowCommand="grvAssociados_RowCommand" Width="1594px" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Height="16px">
+        <asp:GridView ID="grvAssociados" runat="server" AutoGenerateColumns="False"  OnRowCommand="grvAssociados_RowCommand" Width="100%" AllowPaging="true" PageSize="8"  CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Height="16px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
             <Columns>
                 <asp:BoundField DataField="pes_codigo" HeaderText="Codigo" />

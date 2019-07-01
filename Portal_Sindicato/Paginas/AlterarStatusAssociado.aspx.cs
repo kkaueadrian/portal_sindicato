@@ -20,6 +20,9 @@ public partial class Paginas_AlterarStatusAssociado : System.Web.UI.Page
         Boolean status = associado.Status;
         if (status == true)
         {
+            var time = DateTime.Now;
+            string formattedTime = time.ToString("yyyy/MM/dd hh:mm:ss");
+            associado.Datadem = Convert.ToDateTime(formattedTime);
             associado.Status = false;
             bd.UpdateStatusAssociado(associado);
 
